@@ -8,7 +8,7 @@
 # > directs output to file directory.html and overwrites it
 echo "<html>" > directory.html
 
-# >> directs output to file director.html and appends it
+# >> directs output to file directory.html and appends it
 echo "<head>" >> directory.html
 echo "<title>" >> directory.html
 echo Top Level Directory >> directory.html
