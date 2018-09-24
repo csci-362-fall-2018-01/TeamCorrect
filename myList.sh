@@ -6,6 +6,10 @@
 
 #Begin Html file
 # > directs output to file directory.html and overwrites it
+#Next two lines from Team TBD
+file=$(readlink -f "$0")
+filepath=$(dirname "$file")
+
 echo "<html>" > directory.html
 
 # >> directs output to file directory.html and appends it
@@ -23,7 +27,7 @@ echo "Folder: ${PWD##*/}<br />" >> directory.html
 echo "<br />" >> directory.html
 
 #For loop to run through directory
-for d in *; do
+for d in `ls $filepath`; do
 	echo "$d<br  />" >> directory.html
 done
 echo "</body>" >> directory.html
