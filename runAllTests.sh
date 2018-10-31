@@ -5,7 +5,7 @@
 #!/bin/bash
 
 #Begin Html file
-# > directs output to file directory.html and overwrites it
+# > directs output to file and overwrites it
 #Next two lines from Team TBD
 file=$(readlink -f "$0")
 filepath=$(dirname "$file")
@@ -35,10 +35,10 @@ echo "</body>" >> testResults.html
 echo "</html>" >> testResults.html
 
 #File creation complete output message
-echo "Directory.html file created"
+echo "testResults.html file created"
 
 #Open file
-xdg-open directory.html
+xdg-open testResults.html
 
 
 
