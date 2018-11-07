@@ -1,4 +1,5 @@
 #!/bin/bash
+#^ Should always be at top of file
 #Team Correct Script
 #Members: Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga
 #runAllTests.sh
