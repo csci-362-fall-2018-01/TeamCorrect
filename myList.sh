@@ -1,9 +1,7 @@
+#!/bin/bash
 #Team Correct Script
 #Members: Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga
 #myList.sh
-
-#!/bin/bash
-
 #Begin Html file
 # > directs output to file directory.html and overwrites it
 #Next two lines from Team TBD
