@@ -1,0 +1,13 @@
+Test Number: 01
+
+Requirement being tested: RS001 Record Blood Glucose Level
+
+Component being tested: Reminder.java
+
+Method being tested: setID
+
+Test input(s) including command-line argument(s):
+Id = 100
+
+Expected outcome(s):
+Test Passed
