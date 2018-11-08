@@ -19,7 +19,7 @@ echo "Test Results" >> testResults.html
 echo "</title>" >> testResults.html
 echo "</head>" >> testResults.html
 echo "<body>" >> testResults.html
-echo "Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga<br />" >> testResults.html
+echo "<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />" >> testResults.html
 echo "<br />" >> testResults.html
 echo "Top Level Directory<br />" >> testResults.html
 echo "Folder: ${PWD##*/}<br />" >> testResults.html
@@ -30,8 +30,22 @@ if [ -f $d -a -x $d ] && [ $d != "runAllTests.sh" ] && [ $d != "myList.sh" ];
 	then
 		sh ./$d
 	fi
-	echo "$d<br  />" >> testResults.html
+	#echo "$d<br  />" >> testResults.html
 done
+
+echo "<strong>Test Case 01</strong><br />" >> testResults.html
+for line in testCase1.txt; do
+	while read LINE; do
+	echo "$LINE<br />" >>testResults.html
+	done < "$line"
+done
+echo "<br /><strong>Test Case 02</strong><br />" >> testResults.html
+for line in testCase2.txt; do
+	while read LINE; do
+	echo "$LINE<br />" >>testResults.html
+	done < "$line"
+done
+
 echo "</body>" >> testResults.html
 echo "</html>" >> testResults.html
 #File creation complete output message
