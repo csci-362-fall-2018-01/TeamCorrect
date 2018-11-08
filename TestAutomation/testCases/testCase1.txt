@@ -1,13 +1,21 @@
 Test Number: 01
 
-Requirement being tested: RS001 Record Blood Glucose Level
+Requirement being tested: RS013 Set Reminders
 
 Component being tested: Reminder.java
 
-Method being tested: setID
+Method being tested: setID, setMetric, setActive
 
 Test input(s) including command-line argument(s):
 Id = 100
+Id = 123456789
+Metric = "0mL"
+Metric = "9L"
+Active = true;
 
 Expected outcome(s):
+Test Passed
+Test Passed
+Test Passed
+Test Passed
 Test Passed
