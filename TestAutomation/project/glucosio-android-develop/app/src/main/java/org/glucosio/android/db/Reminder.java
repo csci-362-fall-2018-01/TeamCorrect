@@ -2,11 +2,11 @@ package org.glucosio.android.db;
 
 import java.util.Date;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
+//import io.realm.RealmObject;
+//import io.realm.annotations.PrimaryKey;
 
-public class Reminder extends RealmObject {
-    @PrimaryKey
+public class Reminder {
+    //@PrimaryKey
     private long id;
 
     private Date alarmTime;

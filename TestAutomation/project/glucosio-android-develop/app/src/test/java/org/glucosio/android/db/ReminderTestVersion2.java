@@ -1,11 +1,11 @@
 package org.glucosio.android.db;
 
-import org.glucosio.android.Constants;
+import org.glucosio.android.db.Reminder;
 
 
 public class ReminderTestVersion2 {
 
-    private Reminder reminderTester;
+    private static Reminder reminderTester = new Reminder();
 
    
     public void setup(){
@@ -13,7 +13,7 @@ public class ReminderTestVersion2 {
     }
 
    
-    public void SetsId_WhenProvided() {
+    public static void SetsId_WhenProvided() {
         int id = 100;
         
 
@@ -24,7 +24,7 @@ public class ReminderTestVersion2 {
     }
 
     
-    public void SetsId_WhenProvided2() {
+    public static void SetsId_WhenProvided2() {
         int id = 123456789;
 
         reminderTester.setId(id);
@@ -32,7 +32,7 @@ public class ReminderTestVersion2 {
         System.out.println("Id returned = " + reminderTester.getId());
     }
     
-    public void SetsMetric_WhenProvided() {
+    public static void SetsMetric_WhenProvided() {
         String metric = "0mL";
 
         reminderTester.setMetric(metric);
@@ -41,7 +41,7 @@ public class ReminderTestVersion2 {
         
     }
     
-    public void SetsMetric_WhenProvided2() {
+    public static void SetsMetric_WhenProvided2() {
         String metric = "9L";
 
         reminderTester.setMetric(metric);
@@ -49,12 +49,21 @@ public class ReminderTestVersion2 {
         System.out.println("Metric returned = " + reminderTester.getMetric());
     }
     
-    public void SetsActive_WhenProvided() {
+    public static void SetsActive_WhenProvided() {
         boolean active = true;
 
         reminderTester.setActive(active);
 
         System.out.println("Is Active returned = " + reminderTester.isActive());
         
+    }
+    public static void main(String[] args) {
+    	SetsId_WhenProvided();
+    	SetsId_WhenProvided2();
+    	SetsMetric_WhenProvided();
+    	SetsMetric_WhenProvided2();
+    	SetsActive_WhenProvided();
+    	
+    	
     }
 }
