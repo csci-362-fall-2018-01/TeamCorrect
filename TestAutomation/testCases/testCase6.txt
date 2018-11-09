@@ -7,9 +7,9 @@ Component being tested: CholesterolReading.java
 Method being tested: setTotalReading, setLDLReading, setHDLReading, setId
 
 Test input(s) including command-line argument(s):
-totalReading = 190
-LDLReading = 90
-HDLReading = 70
+totalReading = 190.0
+LDLReading = 90.0
+HDLReading = 70.0
 ID = 1234
 ID = 146789
 
