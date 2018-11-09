@@ -13,38 +13,47 @@
 #Next two lines from Team TBD
 file=$(readlink -f "$0")
 filepath=$(dirname "$file")
-echo "<html>" > testResults.html
-echo "<title>" >> testResults.html
-echo "Test Results" >> testResults.html
-echo "</title>" >> testResults.html
-echo "</head>" >> testResults.html
-echo "<body>" >> testResults.html
-echo "<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />" >> testResults.html
-echo "<br />" >> testResults.html
-echo "Top Level Directory<br />" >> testResults.html
-echo "Folder: ${PWD##*/}<br />" >> testResults.html
-echo "<br />" >> testResults.html
+cd ..
+echo "<html>" > /reports/testResults.html
+echo "<title>" >> /reports/testResults.html
+echo "Test Results" >> /reports/testResults.html
+echo "</title>" >> /reports/testResults.html
+echo "</head>" >> /reports/testResults.html
+echo "<body>" >> /reports/testResults.html
+echo "<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />" >> /reports/testResults.html
+echo "<br />" >> /reports/testResults.html
+echo "Top Level Directory<br />" >> /reports/testResults.html
+echo "Folder: ${PWD##*/}<br />" >> /reports/testResults.html
+echo "<br />" >> /reports/testResults.html
 #For loop to run through directory
+
+cd /testCases
+
 for d in `ls $filepath`; do
-if [ -f $d -a -x $d ] && [ $d != "runAllTests.sh" ] && [ $d != "myList.sh" ];
+if [ -f $d -a -x $d ] && [ $d != "runAllTests.sh" ] && [ $d != "testResults.html" ];
 	then
 		sh ./$d
 	fi
 	#echo "$d<br  />" >> testResults.html
 done
 
-echo "<strong>Test Case 01</strong><br />" >> testResults.html
-for line in testCase1.txt; do
-	while read LINE; do
-	echo "$LINE<br />" >>testResults.html
-	done < "$line"
-done
-echo "<br /><strong>Test Case 02</strong><br />" >> testResults.html
-for line in testCase2.txt; do
-	while read LINE; do
-	echo "$LINE<br />" >>testResults.html
-	done < "$line"
-done
+#Working Directory is now /testCases
+for d in `ls $PWD`; do
+if [ $d != "testResults.html" ];
+	then
+	echo "<strong> $d </strong><br />" >> testResults.html
+	for line in $d; do
+		while read LINE; do
+		echo "$LINE<br />" >> testResults.html
+		done < "$line"
+	done < "$d"
+	fi
+done 
+
+#cd ..
+#cd /testCasesExecutables
+#echo $PWD
+#compile and run tests
 
 echo "</body>" >> testResults.html
 echo "</html>" >> testResults.html
