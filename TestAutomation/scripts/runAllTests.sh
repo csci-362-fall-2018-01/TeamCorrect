@@ -53,25 +53,13 @@ done
 #cd /testCasesExecutables
 #echo $PWD
 
-#echo "<strong>Test Case 01</strong><br />" >> testResults.html
-#for line in testCase1.txt; do
-#	while read LINE; do
-#	echo "$LINE<br />" >>testResults.html
-#	done < "$line"
-#done
-#echo "<br /><strong>Test Case 02</strong><br />" >> testResults.html
-#for line in testCase2.txt; do
-#	while read LINE; do
-#	echo "$LINE<br />" >>testResults.html
-#	done < "$line"
-#done
 
 echo "</body>" >> testResults.html
 echo "</html>" >> testResults.html
 #File creation complete output message
 echo "testResults.html file created"
 #Open file
-#xdg-open testResults.html
+xdg-open testResults.html
 
 
 
