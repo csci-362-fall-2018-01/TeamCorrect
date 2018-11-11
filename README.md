@@ -18,3 +18,20 @@ Ubuntu, Clone of Team Correct Repository, Java
 5) Output will be stored in an html file which should open automatically in the default browser.
 
 *If any of the above commands return permission denied, use 'sudo' in front of the command.
+
+# Testing Framework Architecture
+/TestAutomation
+    /project (Holds Glucosio repository)
+        /glucosio-android-develop
+    /scripts
+        runAllTests.sh
+    /testCases
+        testCase1.txt
+        testCase2.txt
+    /testCasesExecutables (Holds Glucosio test scripts)
+    /temp
+    /oracles
+    /docs
+      README.md
+    /reports
+        testResults.html
