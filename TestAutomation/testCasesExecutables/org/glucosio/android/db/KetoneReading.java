@@ -22,11 +22,10 @@ package org.glucosio.android.db;
 
 import java.util.Date;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
-public class KetoneReading extends RealmObject {
-    @PrimaryKey
+
+public class KetoneReading  {
+   
     private long id;
 
     private double reading;

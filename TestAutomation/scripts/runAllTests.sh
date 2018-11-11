@@ -64,6 +64,18 @@ javac GlucosioConverter.java GlucosioConverterTestVersion2.java
 report="$report <br /> <strong>TestCase2 Result</strong><br />"
 report="$report $(java -classpath $testAutomationPath org.glucosio.android.tools.GlucosioConverterTestVersion2)"
 
+cd ../db
+javac KetoneReading.java KetoneReadingTest.java
+report="$report <br /> <strong>TestCase3 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.KetoneReadingTest)"
+
+javac WeightReading.java WeightReadingTest.java
+report="$report <br /> <strong>TestCase4 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.WeightReadingTest)"
+
+javac PressureReading.java PressureReadingTest.java
+report="$report <br /> <strong>TestCase5 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.PressureReadingTest)"
 
 
 #for t in `ls $PWD`; do

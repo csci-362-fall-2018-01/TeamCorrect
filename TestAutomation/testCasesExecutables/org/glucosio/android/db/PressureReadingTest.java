@@ -24,13 +24,13 @@ public class PressureReadingTest {
     public static void SetsId_WhenProvided2() {
         int id = 146789;
 
-        weightReadingTester.setId(id);
+        pressureReadingTester.setId(id);
 
         System.out.println("Id returned = " + pressureReadingTester.getId());
     }
 
     public static void SetsMinReading_WhenProvided() {
-        int minReading = 110.0;
+        double minReading = 110.0;
 
         pressureReadingTester.setMinReading(minReading);
 
@@ -38,7 +38,7 @@ public class PressureReadingTest {
     }
 
     public static void SetsMaxReading_WhenProvided() {
-        int maxReading = 180.0;
+        double maxReading = 180.0;
 
         pressureReadingTester.setMaxReading(maxReading);
 

@@ -1,14 +1,13 @@
 package org.glucosio.android.db;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
-import org.glucosio.android.db.Reminder;
 
 
-public class KeytoneReadingTest {
+import org.glucosio.android.db.KetoneReading;
 
-    private static Reading readingTester = new KetoneReading();
+
+public class KetoneReadingTest {
+
+    private static KetoneReading readingTester = new KetoneReading();
     public void setup(){
         readingTester = new KetoneReading();
     }

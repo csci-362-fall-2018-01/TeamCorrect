@@ -20,13 +20,12 @@
 
 package org.glucosio.android.db;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
+
 
 import java.util.Date;
 
-public class PressureReading extends RealmObject {
-    @PrimaryKey
+public class PressureReading  {
+    
     private long id;
 
     private double minReading;

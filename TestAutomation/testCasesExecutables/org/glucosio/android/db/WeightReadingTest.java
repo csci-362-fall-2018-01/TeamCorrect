@@ -30,7 +30,7 @@ public class WeightReadingTest {
     }
 
     public static void SetsReading_WhenProvided() {
-        int reading = 100.0;
+        double reading = 100.0;
 
         weightReadingTester.setReading(reading);
 
@@ -38,7 +38,7 @@ public class WeightReadingTest {
     }
 
     public static void SetsReading_WhenProvided2() {
-        int reading = 50.0;
+        double reading = 50.0;
 
         weightReadingTester.setReading(reading);
 
