@@ -21,19 +21,35 @@ Ubuntu, Clone of Team Correct Repository, Java
 
 # Testing Framework Architecture
 /TestAutomation
+
     /project (Holds Glucosio repository)
+    
         /glucosio-android-develop
+        
     /scripts
+    
         runAllTests.sh
+        
     /testCases
+    
         testCase1.txt
+        
         testCase2.txt
+        
+        ...
+        
     /testCasesExecutables (Holds Glucosio test scripts)
+    
     /temp
+    
     /oracles
+    
     /docs
+    
       README.md
+      
     /reports
+    
         testResults.html
  
 # List of CS 362 Deliverables
