@@ -13,54 +13,61 @@
 #Next two lines from Team TBD
 file=$(readlink -f "$0")
 filepath=$(dirname "$file")
+
+cd ../testCases
+test_cases_directory=$PWD
+
+
+
+report="<html>"
+
 cd ..
-echo "<html>" > /reports/testResults.html
-echo "<title>" >> /reports/testResults.html
-echo "Test Results" >> /reports/testResults.html
-echo "</title>" >> /reports/testResults.html
-echo "</head>" >> /reports/testResults.html
-echo "<body>" >> /reports/testResults.html
-echo "<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />" >> /reports/testResults.html
-echo "<br />" >> /reports/testResults.html
-echo "Top Level Directory<br />" >> /reports/testResults.html
-echo "Folder: ${PWD##*/}<br />" >> /reports/testResults.html
-echo "<br />" >> /reports/testResults.html
-#For loop to run through directory
 
-cd /testCases
 
-for d in `ls $filepath`; do
-if [ -f $d -a -x $d ] && [ $d != "runAllTests.sh" ] && [ $d != "testResults.html" ];
-	then
-		sh ./$d
-	fi
-	#echo "$d<br  />" >> testResults.html
-done
+report="$report \n<title>"
+report="$report \nTest Results"
+report="$report \n</title>"
+report="$report \n</head>"
+report="$report \n<body>"
+report="$report \n<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />"
+report="$report \n<br />"
+report="$report \nTop Level Directory<br />"
+report="$report \nFolder: ${PWD##*/}<br />"
+report="$report \n<br />"
 
-#Working Directory is now /testCases
+#checks if file and executable
+#if [ -f $d -a -x $d ] 
+
+cd testCases
 for d in `ls $PWD`; do
 if [ $d != "testResults.html" ];
 	then
-	echo "<strong> $d </strong><br />" >> testResults.html
+	report="$report \n<strong> $d </strong><br />"
 	for line in $d; do
 		while read LINE; do
-		echo "$LINE<br />" >> testResults.html
+		report="$report \n$LINE<br />"
 		done < "$line"
 	done < "$d"
 	fi
-done 
+done
+cd ..
 
-#cd ..
-#cd /testCasesExecutables
-#echo $PWD
-#compile and run tests
+cd testCasesExecutables
+for t in `ls $PWD`; do
+	#compile if necessary
+	#run
+done
+cd ..
 
-echo "</body>" >> testResults.html
-echo "</html>" >> testResults.html
+report="$report \n</body>"
+report="$report \n</html>"
 #File creation complete output message
+
+cd reports
+echo $report > testResults.html
 echo "testResults.html file created"
 #Open file
-xdg-open testResults.html
+#xdg-open report
 
 
 
