@@ -6,7 +6,7 @@ import io.realm.annotations.PrimaryKey;
 import org.glucosio.android.db.Reminder;
 
 public class HB1ACReadingTest {
-    private static Reading readingTester = new HB1ACReading();
+    private static HB1ACReading readingTester = new HB1ACReading();
     public void setup(){
         readingTester = new HB1ACReading();
     }
