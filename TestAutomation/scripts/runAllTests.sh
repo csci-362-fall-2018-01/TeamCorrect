@@ -53,10 +53,10 @@ done
 cd ..
 
 cd testCasesExecutables
-for t in `ls $PWD`; do
+#for t in `ls $PWD`; do
 	#compile if necessary
 	#run
-done
+#done
 cd ..
 
 report="$report \n</body>"
@@ -67,7 +67,7 @@ cd reports
 echo $report > testResults.html
 echo "testResults.html file created"
 #Open file
-#xdg-open report
+#xdg-open testResults.html
 
 
 
