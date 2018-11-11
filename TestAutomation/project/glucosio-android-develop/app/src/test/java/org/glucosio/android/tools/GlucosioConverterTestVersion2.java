@@ -1,27 +1,50 @@
 package org.glucosio.android.tools;
 
 import org.glucosio.android.tools.GlucosioConverter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class GlucosioConverterTestVersion2 {
 	
 	//private static GlucosioConverter gluConverterTester = new GlucosioConverter();
-	public static void CalculatesGlucoseToA1C() {
-		double value1 = 10.0;
+	public static void CalculatesGlucoseToA1C(double input) {
+		/*double value1 = 10.0;
 		double value2 = 25.0;
 		double value3 = 50.0;
-		double value4 = 0.0;
-		double glucA1Cvalue1 = GlucosioConverter.glucoseToA1C(value1);
-		double glucA1Cvalue2 = GlucosioConverter.glucoseToA1C(value2);
+		double value4 = 0.0;*/
+		double glucA1Cvalue1 = GlucosioConverter.glucoseToA1C(input);
+		/*double glucA1Cvalue2 = GlucosioConverter.glucoseToA1C(value2);
 		double glucA1Cvalue3 = GlucosioConverter.glucoseToA1C(value3);
-		double glucA1Cvalue4 = GlucosioConverter.glucoseToA1C(value4);
-		System.out.println(value1 +" glucose level converted to " + glucA1Cvalue1);
-		System.out.println(value2 +" glucose level converted to " + glucA1Cvalue2);
+		double glucA1Cvalue4 = GlucosioConverter.glucoseToA1C(value4);*/
+		System.out.println(input +" glucose level converted to " + glucA1Cvalue1);
+		/*System.out.println(value2 +" glucose level converted to " + glucA1Cvalue2);
 		System.out.println(value3 +" glucose level converted to " + glucA1Cvalue3);
-		System.out.println(value4 +" glucose level converted to " + glucA1Cvalue4);
+		System.out.println(value4 +" glucose level converted to " + glucA1Cvalue4);*/
 	}
 	
 	public static void main(String[] args) {
-		CalculatesGlucoseToA1C();
+		String filePath = new File("").getAbsolutePath();
+		System.out.println(filePath + "/app/src/test/java/org/glucosio/android/tools/inputGConverter.txt");
+        BufferedReader reader;
+        try {
+        	reader = new BufferedReader(new FileReader(filePath + "/inputGConverter.txt"));
+        	String line = reader.readLine();
+        	double inputValue = Double.parseDouble(line);
+        	while(line!=null) {
+        		CalculatesGlucoseToA1C(inputValue);
+        		line = reader.readLine();
+        		if(line!=null) {
+        			inputValue = Double.parseDouble(line);
+        		}
+        	}
+        	reader.close();
+        }
+        catch(IOException e) {
+        	e.printStackTrace();
+        }
+		
 	}
 
 }
