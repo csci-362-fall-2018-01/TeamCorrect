@@ -18,7 +18,8 @@ Ubuntu, Clone of Team Correct Repository, Java
 5) Output will be stored in an html file which should open automatically in the default browser.
 
 *If any of the above commands return permission denied, use 'sudo' in front of the command.
-*If the ./runAllTests.sh returns comman not found, use 'sudo chmod 755 runAllTests.sh', then './runAllTests.sh'
+
+*If the ./runAllTests.sh returns command not found, use 'sudo chmod 755 runAllTests.sh', then './runAllTests.sh'
 
 # Testing Framework Architecture
 /TestAutomation
