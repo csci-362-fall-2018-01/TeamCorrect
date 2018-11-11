@@ -13,8 +13,8 @@ ID = 1234
 ID = 146789
 
 Expected outcome(s):
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
+Id returned = 1234
+Id returned = 146789
+Reading returned = 2.0
+Reading returned = 10.0
 

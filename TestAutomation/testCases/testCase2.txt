@@ -7,14 +7,13 @@ Component being tested: Glucose Converter
 Method being tested: glucoseToA1C, a1cToGlucose
 
 Test input(s) including command-line argument(s):
-mgDl = 10
-mgDl = 25
-A1c = 1.5
-A1c = 3.0
+mgDl = 10.0
+mgDl = 25.0
+mgDl = 50.0
+mgDl = 0.0
 
 Expected outcome(s):
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-
+10.0 glucose level converted to 1.98
+25.0 glucose level converted to 2.5
+50.0 glucose level converted to 3.37
+0.0 glucose level converted to 1.63

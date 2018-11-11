@@ -14,26 +14,25 @@
 file=$(readlink -f "$0")
 filepath=$(dirname "$file")
 
+
 cd ../testCases
-test_cases_directory=$PWD
-
-
 
 report="<html>"
 
 cd ..
 
 
-report="$report \n<title>"
-report="$report \nTest Results"
-report="$report \n</title>"
-report="$report \n</head>"
-report="$report \n<body>"
-report="$report \n<strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />"
-report="$report \n<br />"
-report="$report \nTop Level Directory<br />"
-report="$report \nFolder: ${PWD##*/}<br />"
-report="$report \n<br />"
+
+report="$report <title>"
+report="$report Test Results"
+report="$report </title>"
+report="$report </head>"
+report="$report <body>"
+report="$report <strong>Team Correct - Hannah Posch, Daniel Lee, Alex Thropp, Daniel Baczmaga</strong><br />"
+report="$report <br />"
+report="$report Top Level Directory<br />"
+report="$report Folder: ${PWD##*/}<br />"
+report="$report <br />"
 
 #checks if file and executable
 #if [ -f $d -a -x $d ] 
@@ -42,10 +41,10 @@ cd testCases
 for d in `ls $PWD`; do
 if [ $d != "testResults.html" ];
 	then
-	report="$report \n<strong> $d </strong><br />"
+	report="$report <br /><strong> $d </strong><br />"
 	for line in $d; do
 		while read LINE; do
-		report="$report \n$LINE<br />"
+		report="$report $LINE<br />"
 		done < "$line"
 	done < "$d"
 	fi
@@ -53,21 +52,54 @@ done
 cd ..
 
 cd testCasesExecutables
+
+testAutomationPath=$PWD
+
+cd org/glucosio/android/db
+javac Reminder.java ReminderTestVersion2.java 
+report="$report <br /> <strong>TestCase1 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.ReminderTestVersion2)" 
+
+cd ../tools
+javac GlucosioConverter.java GlucosioConverterTestVersion2.java 
+report="$report <br /> <strong>TestCase2 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.tools.GlucosioConverterTestVersion2)"
+
+cd ../db
+javac KetoneReading.java KetoneReadingTest.java
+report="$report <br /> <strong>TestCase3 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.KetoneReadingTest)"
+
+javac WeightReading.java WeightReadingTest.java
+report="$report <br /> <strong>TestCase4 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.WeightReadingTest)"
+
+javac PressureReading.java PressureReadingTest.java
+report="$report <br /> <strong>TestCase5 Result</strong><br />"
+report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.PressureReadingTest)"
+
+
+
 #for t in `ls $PWD`; do
 	#compile if necessary
 	#run
 #done
 cd ..
+cd ..
+cd ..
+cd ..
+cd ..
 
-report="$report \n</body>"
-report="$report \n</html>"
+report="$report </body>"
+report="$report </html>"
 #File creation complete output message
 
 cd reports
 echo $report > testResults.html
 echo "testResults.html file created"
 #Open file
-#xdg-open testResults.html
+xdg-open testResults.html
+
 
 
 

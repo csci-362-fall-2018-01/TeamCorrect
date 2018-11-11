@@ -14,8 +14,8 @@ Metric = "9L"
 Active = true;
 
 Expected outcome(s):
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
+Id returned = 100
+Id returned = 123456789
+Metric returned = 0mL
+Metric returned = 9L
+Is Active returned = true
