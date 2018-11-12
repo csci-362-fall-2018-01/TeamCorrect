@@ -1,1574 +1,0 @@
-package org.glucosio.android.tools;<br />
-<br />
-<br />
-import android.content.Context;<br />
-import android.graphics.Color;<br />
-import org.glucosio.android.R;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-import org.junit.runner.RunWith;<br />
-import org.mockito.Mock;<br />
-import org.mockito.runners.MockitoJUnitRunner;<br />
-<br />
-import static junit.framework.Assert.assertEquals;<br />
-import static junit.framework.Assert.assertTrue;<br />
-import static org.mockito.Mockito.when;<br />
-<br />
-@RunWith(MockitoJUnitRunner.class)<br />
-public class GlucoseRangesTest {<br />
-private static final int READING_OK = Color.parseColor("#749756");<br />
-private static final int READING_HYPER = Color.parseColor("#E86445");<br />
-private static final int READING_LOW = Color.parseColor("#4B8DDB");<br />
-private static final int READING_HIGH = Color.parseColor("#E7B85D");<br />
-private static final int READING_HYPO = Color.parseColor("#6F4EAB");<br />
-@Mock<br />
-private Context context;<br />
-@Mock<br />
-private GlucoseRanges glucoseRanges;<br />
-<br />
-@Before<br />
-public void setUp() {<br />
-when(context.getColor(R.color.glucosio_reading_hyper)).thenReturn(READING_HYPER);<br />
-when(glucoseRanges.stringToColor("red")).thenReturn(READING_HYPER);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_low)).thenReturn(READING_LOW);<br />
-when(glucoseRanges.stringToColor("blue")).thenReturn(READING_LOW);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_ok)).thenReturn(READING_OK);<br />
-when(glucoseRanges.stringToColor("green")).thenReturn(READING_OK);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_hypo)).thenReturn(READING_HYPO);<br />
-when(glucoseRanges.stringToColor("purple")).thenReturn(READING_HYPO);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_high)).thenReturn(READING_HIGH);<br />
-when(glucoseRanges.stringToColor("orange")).thenReturn(READING_HIGH);<br />
-<br />
-when(glucoseRanges.colorFromReading(65)).thenReturn("purple");<br />
-when(glucoseRanges.colorFromReading(410)).thenReturn("red");<br />
-when(glucoseRanges.colorFromReading(100)).thenReturn("green");<br />
-when(glucoseRanges.colorFromReading(130)).thenReturn("green");<br />
-when(glucoseRanges.colorFromReading(72)).thenReturn("blue");<br />
-when(glucoseRanges.colorFromReading(90)).thenReturn("blue");<br />
-when(glucoseRanges.colorFromReading(145)).thenReturn("orange");<br />
-when(glucoseRanges.colorFromReading(185)).thenReturn("orange");<br />
-<br />
-}<br />
-<br />
-@Test<br />
-public void expectPurpleWhenReadingValueIs65WithNoPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(65).equals("purple"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectRedWhenReadingValueIs210WithNoPreferredRange() {<br />
-assertEquals(glucoseRanges.colorFromReading(410), "red");<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs72WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs185WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(185).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs130WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(130).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs90WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(90).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs145WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs71WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs155WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs72WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs145WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnOkColorIfGreenStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_ok);<br />
-int actual = glucoseRanges.stringToColor("green");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHyperColorIfRedStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_hyper);<br />
-int actual = glucoseRanges.stringToColor("red");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnLowColorIfBlueStringGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_low);<br />
-int actual = glucoseRanges.stringToColor("blue");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHighColorIfOrangeStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_high);<br />
-int actual = glucoseRanges.stringToColor("orange");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHypoColorIfPurpleStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_hypo);<br />
-int actual = glucoseRanges.stringToColor("purple");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-private void setPreferredRange(int min, int max) {<br />
-glucoseRanges.setCustomMin(min);<br />
-glucoseRanges.setCustomMax(max);<br />
-}<br />
-}<br />
-Êþº¾6B<br />
--.<br />
--<br />
-/0	12<br />
-/3<br />
-/45@2<br />
-6@GY™™™™š@<³33333@£Ï€Ü3@7KÆ§ïž?·k;¸<òÐ7MG_DL_TO_MMOL_CONSTANTDConstantValueKG_TO_LB_CONSTANT<init>()VCodeLineNumberTableround(DI)DStackMapTableglucoseToMgDl(D)DglucoseToMmolLglucoseToA1Ca1cToGlucosekgToLblbToKga1cNgspToIfcca1cIfccToNgsp<br />
-SourceFileGlucosioConverter.java"java/lang/IllegalArgumentException89:;<=>?@A,org/glucosio/android/tools/GlucosioConverter java/lang/Objectjava/math/BigDecimalvalueOf(D)Ljava/math/BigDecimal;java/math/RoundingModeHALF_UPLjava/math/RoundingMode;setScale1(ILjava/math/RoundingMode;)Ljava/math/BigDecimal;doubleValue()D1	<br />
-!*·±<br />
- 	 Lœ»Y·¿&¸N-²¶N-¶¯#%&'!	"#&	k¯+	$#"<br />
-/*<br />
-* Copyright (C) 2016 Glucosio Foundation<br />
-*<br />
-* This file is part of Glucosio.<br />
-*<br />
-* Glucosio is free software: you can redistribute it and/or modify<br />
-* it under the terms of the GNU General Public License as published by<br />
-* the Free Software Foundation, version 3.<br />
-*<br />
-* Glucosio is distributed in the hope that it will be useful,<br />
-* but WITHOUT ANY WARRANTY; without even the implied warranty of<br />
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />
-* GNU General Public License for more details.<br />
-*<br />
-* You should have received a copy of the GNU General Public License<br />
-* along with Glucosio.  If not, see <http://www.gnu.org/licenses/>.<br />
-*<br />
-*<br />
-*/<br />
-<br />
-package org.glucosio.android.tools;<br />
-<br />
-import java.math.BigDecimal;<br />
-import java.math.RoundingMode;<br />
-<br />
-public final class GlucosioConverter {<br />
-<br />
-private static final double MG_DL_TO_MMOL_CONSTANT = 18.0;<br />
-private static final double KG_TO_LB_CONSTANT = 2.20462;<br />
-<br />
-private GlucosioConverter() {<br />
-}<br />
-<br />
-public static double round(double value, int places) {<br />
-if (places < 0) throw new IllegalArgumentException();<br />
-<br />
-BigDecimal bd = BigDecimal.valueOf(value);<br />
-bd = bd.setScale(places, RoundingMode.HALF_UP);<br />
-return bd.doubleValue();<br />
-}<br />
-<br />
-public static double glucoseToMgDl(double mmolL) {<br />
-return mmolL * MG_DL_TO_MMOL_CONSTANT;<br />
-}<br />
-<br />
-public static double glucoseToMmolL(double mgDl) {<br />
-return round(mgDl / MG_DL_TO_MMOL_CONSTANT, 2);<br />
-}<br />
-<br />
-public static double glucoseToA1C(double mgDl) {<br />
-// A1C = (Average glucose + 46.7) / 28.7<br />
-return round((mgDl + 46.7) / 28.7, 2);<br />
-}<br />
-<br />
-public static double a1cToGlucose(double a1c) {<br />
-// Average glucose = (A1C * 28.7) -46.7<br />
-return round((a1c * 28.7) - 46.7, 2);<br />
-}<br />
-<br />
-public static double kgToLb(double kg) {<br />
-return kg * KG_TO_LB_CONSTANT;<br />
-}<br />
-<br />
-public static double lbToKg(double lb) {<br />
-return lb / KG_TO_LB_CONSTANT;<br />
-}<br />
-<br />
-public static double a1cNgspToIfcc(double ngsp) {<br />
-// percentage to mmol/mol<br />
-// [NGSP - 2.152] / 0.09148<br />
-return round((ngsp - 2.152) / 0.09148, 2);<br />
-}<br />
-<br />
-public static double a1cIfccToNgsp(double ifcc) {<br />
-// mmol/mol to percentage<br />
-// [0.09148 * IFCC] + 2.152<br />
-return round((0.09148 * ifcc) + 2.152, 2);<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.offset;<br />
-<br />
-public class GlucosioConverterTest {<br />
-@Test<br />
-public void ShouldRoundToFloor_WhenLowerValueOfExactPointIsGiven() {<br />
-assertThat(GlucosioConverter.round(10.123, 2)).isEqualTo(10.12);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldRoundToCeil_WhenHigherValueOfExactPointIsGiven() {<br />
-assertThat(GlucosioConverter.round(10.126, 2)).isEqualTo(10.13);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMmolToMgDlExactly_WhenMgDlNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToMgDl(1)).isEqualTo(18);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMgDlToMmolExactly_WhenMmolNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToMmolL(18)).isEqualTo(1);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMgDlToA1cExactly_WhenA1CNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToA1C(18)).isEqualTo(2.25);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertA1CToGlucoseExactly_WhenGlucoseNeeded() {<br />
-assertThat(GlucosioConverter.a1cToGlucose(2.25)).isEqualTo(17.88);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertKgToLbExactly_WhenLbNeeded() {<br />
-assertThat(GlucosioConverter.kgToLb(60)).isEqualTo(132.27, offset(0.01));<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertLbToKgExactly_WhenKgNeeded() {<br />
-assertThat(GlucosioConverter.lbToKg(132)).isEqualTo(59.87, offset(0.01));<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertPercentageToA1cExactly_WhenPercentageIsUsed() {<br />
-assertThat(GlucosioConverter.a1cNgspToIfcc(5)).isEqualTo(31.13);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertA1cToPercentageExactly_WhenPercentageNeeded() {<br />
-assertThat(GlucosioConverter.a1cIfccToNgsp(31.13)).isEqualTo(5);<br />
-}<br />
-}<br />
-Êþº¾6=<br />
-@$@9@I<br />
-	 <br />
-!"<br />
-#$%<init>()VCodeLineNumberTableCalculatesGlucoseToA1Cmain([Ljava/lang/String;)V<br />
-SourceFile"GlucosioConverterTestVersion2.java&'()*+BootstrapMethods,-./0128org/glucosio/android/tools/GlucosioConverterTestVersion2java/lang/Object,org/glucosio/android/tools/GlucosioConverterglucoseToA1C(D)Djava/lang/SystemoutLjava/io/PrintStream;<br />
-34 glucose level converted to makeConcatWithConstants(DD)Ljava/lang/String;java/io/PrintStreamprintln(Ljava/lang/String;)V5.9$java/lang/invoke/StringConcatFactory;LookupInnerClasses˜(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;<%java/lang/invoke/MethodHandles$Lookupjava/lang/invoke/MethodHandles!*·±	­eGI99&¸9(¸9<br />
-¸9¸9²	&º<br />
-¶²	(<br />
-º<br />
-¶²	º<br />
-¶²	º<br />
-¶±6	<br />
-#*8FUd	 ¸±<br />
-8<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.glucosio.android.tools.GlucosioConverter;<br />
-<br />
-public class GlucosioConverterTestVersion2 {<br />
-<br />
-//private static GlucosioConverter gluConverterTester = new GlucosioConverter();<br />
-public static void CalculatesGlucoseToA1C() {<br />
-double value1 = 10.0;<br />
-double value2 = 25.0;<br />
-double value3 = 50.0;<br />
-double value4 = 0.0;<br />
-double glucA1Cvalue1 = GlucosioConverter.glucoseToA1C(value1);<br />
-double glucA1Cvalue2 = GlucosioConverter.glucoseToA1C(value2);<br />
-double glucA1Cvalue3 = GlucosioConverter.glucoseToA1C(value3);<br />
-double glucA1Cvalue4 = GlucosioConverter.glucoseToA1C(value4);<br />
-System.out.println(value1 +" glucose level converted to " + glucA1Cvalue1);<br />
-System.out.println(value2 +" glucose level converted to " + glucA1Cvalue2);<br />
-System.out.println(value3 +" glucose level converted to " + glucA1Cvalue3);<br />
-System.out.println(value4 +" glucose level converted to " + glucA1Cvalue4);<br />
-}<br />
-<br />
-public static void main(String[] args) {<br />
-CalculatesGlucoseToA1C();<br />
-}<br />
-<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-<br />
-import android.text.SpannableString;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import static junit.framework.Assert.assertEquals;<br />
-import static org.junit.Assert.assertFalse;<br />
-import static org.junit.Assert.assertTrue;<br />
-<br />
-public class InputFilterMinMaxTest {<br />
-<br />
-private InputFilterMinMax ifmm = new InputFilterMinMax(3, 5);<br />
-<br />
-@Test<br />
-public void checkIfRACCA1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(1, 7, 3));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(5, 7, 3));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(5, 1, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA4ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(3, 1, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(1, 7, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(1, 2, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(8, 4, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB4ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(8, 6, 5));<br />
-}<br />
-<br />
-<br />
-@Test<br />
-public void checkIfRACCC1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(3, 7, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(3, 7, 2));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(6, 4, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC4ValueIsInRange4False() {<br />
-assertFalse(ifmm.isInRange(6, 4, 7));<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnEmptyStringWhenNoDestAndSourceValues() {<br />
-ifmm = new InputFilterMinMax("4", "4");<br />
-assertEquals("", ifmm.filter("", 0, 0, new SpannableString(""), 0, 0));<br />
-}<br />
-<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.res.Resources;<br />
-<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import java.util.List;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class LocaleHelperTest extends RobolectricTest {<br />
-private LocaleHelper helper = new LocaleHelper();<br />
-<br />
-@Test<br />
-public void ShouldReturnAtLeastEnglish_WhenAsked() throws Exception {<br />
-final Resources resources = RuntimeEnvironment.application.getResources();<br />
-<br />
-final List<String> localesWithTranslation = helper.getLocalesWithTranslation(resources);<br />
-<br />
-assertThat(localesWithTranslation.size()).isGreaterThanOrEqualTo(1);<br />
-assertThat(localesWithTranslation).contains("en");<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import java.text.NumberFormat;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class NumberFormatUtilsTest {<br />
-@Test<br />
-public void SetMinimumAndMaximumNumberOfDigits() {<br />
-NumberFormat numberFormat = NumberFormatUtils.createDefaultNumberFormat();<br />
-<br />
-assertThat(numberFormat.getMinimumFractionDigits()).isZero();<br />
-assertThat(numberFormat.getMaximumFractionDigits()).isEqualTo(3);<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.Context;<br />
-import android.content.SharedPreferences;<br />
-import android.preference.PreferenceManager;<br />
-<br />
-public class Preferences {<br />
-static final String LOCALE_CLEANED = "PREF_LOCALE_CLEANED";<br />
-<br />
-private final SharedPreferences sharedPreferences;<br />
-<br />
-public Preferences(Context context) {<br />
-sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);<br />
-}<br />
-<br />
-public boolean isLocaleCleaned() {<br />
-return sharedPreferences.getBoolean(LOCALE_CLEANED, false);<br />
-}<br />
-<br />
-public void saveLocaleCleaned() {<br />
-sharedPreferences.edit().putBoolean(LOCALE_CLEANED, true).apply();<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.SharedPreferences;<br />
-import android.preference.PreferenceManager;<br />
-<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import static org.assertj.android.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class PreferencesTest extends RobolectricTest {<br />
-private Preferences preferences;<br />
-<br />
-@Before<br />
-public void setUp() throws Exception {<br />
-preferences = new Preferences(RuntimeEnvironment.application);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldReturnFalseAsDefault_WhenAskedIfLocaleWasCleared() throws Exception {<br />
-assertThat(preferences.isLocaleCleaned()).isFalse();<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldReturnSavedValue_WhenLocaleIsClearedAsked() throws Exception {<br />
-SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RuntimeEnvironment.application);<br />
-sharedPreferences.edit().putBoolean(Preferences.LOCALE_CLEANED, true).apply();<br />
-<br />
-assertThat(preferences.isLocaleCleaned()).isTrue();<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldSaveLocaleIsCleaned_WhenAsked() throws Exception {<br />
-preferences.saveLocaleCleaned();<br />
-<br />
-SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RuntimeEnvironment.application);<br />
-assertThat(sharedPreferences).contains(Preferences.LOCALE_CLEANED, true);<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.glucosio.android.Constants;<br />
-import org.glucosio.android.R;<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.glucosio.android.db.GlucoseReading;<br />
-import org.junit.Assert;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import java.io.ByteArrayOutputStream;<br />
-import java.io.IOException;<br />
-import java.io.OutputStreamWriter;<br />
-import java.text.NumberFormat;<br />
-import java.util.ArrayList;<br />
-import java.util.Date;<br />
-import java.util.List;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-/**<br />
-* Created by david on 30/10/16.<br />
-*/<br />
-<br />
-public class ReadingToCSVTest extends RobolectricTest {<br />
-<br />
-private final FormatDateTime dateTool = new FormatDateTime(RuntimeEnvironment.application);<br />
-private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();<br />
-private final OutputStreamWriter osw = new OutputStreamWriter(outputStream);<br />
-private final NumberFormat numberFormat = NumberFormatUtils.createDefaultNumberFormat();<br />
-<br />
-@Test<br />
-public void GeneratesEmptyCSVWithHeader_WhenNoData() throws IOException {<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(new ArrayList<GlucoseReading>(), osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString());<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndOneLine_WhenOneReading() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, "notes"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndOneLine_WhenOneReadingInMMol() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, "notes"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MMOL_L);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MMOL_L));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithoutNulls_WhenOneReadingWithNulls() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, null, created, null));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndLinesEscaped_WhenDataWithWrongChars() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, ","));<br />
-values.add(new GlucoseReading(81, "type", created, ""E""));<br />
-values.add(new GlucoseReading(82, "type", created, "r"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(<br />
-outputStream.toString(),<br />
-headerAsString(),<br />
-valuesAsString(values.get(0), Constants.Units.MG_DL),<br />
-valuesAsString(values.get(1), Constants.Units.MG_DL),<br />
-valuesAsString(values.get(2), Constants.Units.MG_DL)<br />
-);<br />
-}<br />
-<br />
-@Test<br />
-public void EscapeNewLine_WhenDataWithIt() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(82, "type", created, "n"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-String result = outputStream.toString();<br />
-String header = headerAsString();<br />
-assertThat(result).contains(header);<br />
-String resultWithoutHeader = result.replace(header, "");<br />
-resultWithoutHeader = resultWithoutHeader.trim();<br />
-<br />
-assertThat(resultWithoutHeader).isEqualTo(valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-private String headerAsString() {<br />
-return getString(R.string.dialog_add_date) +<br />
-',' +<br />
-getString(R.string.dialog_add_time) +<br />
-',' +<br />
-getString(R.string.dialog_add_concentration) +<br />
-',' +<br />
-getString(R.string.helloactivity_spinner_preferred_glucose_unit) +<br />
-',' +<br />
-getString(R.string.dialog_add_measured) +<br />
-',' +<br />
-getString(R.string.dialog_add_notes);<br />
-}<br />
-<br />
-private String getString(int stringId) {<br />
-return RuntimeEnvironment.application.getString(stringId);<br />
-}<br />
-<br />
-private String valuesAsString(GlucoseReading reading, String units) {<br />
-double readingValue = Constants.Units.MG_DL.equals(units) ?<br />
-reading.getReading() :<br />
-GlucosioConverter.glucoseToMmolL(reading.getReading());<br />
-<br />
-String reading_type = reading.getReading_type();<br />
-String notes = reading.getNotes();<br />
-<br />
-return dateTool.convertRawDate(reading.getCreated()) +<br />
-',' +<br />
-dateTool.convertRawTime(reading.getCreated()) +<br />
-',' +<br />
-numberFormat.format(readingValue) +<br />
-',' +<br />
-units +<br />
-',' +<br />
-(reading_type == null ? "" : reading_type) +<br />
-',' +<br />
-escapedCSVString(notes == null ? "" : notes);<br />
-}<br />
-<br />
-private String escapedCSVString(String s) {<br />
-if (s.contains(",") || s.contains(""") || s.contains("n") || s.contains("r"))<br />
-return """ + s.replace(""", """") + """;<br />
-else<br />
-return s;<br />
-}<br />
-<br />
-private void assertFileContentEqualsToString(String output, String... expectedValues) {<br />
-String[] lines = output.split("n");<br />
-Assert.assertEquals(expectedValues.length, lines.length);<br />
-<br />
-for (int i = 0; i < lines.length; i++) {<br />
-Assert.assertEquals(expectedValues[i], lines[i]);<br />
-}<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.After;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-<br />
-import java.util.Locale;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.offset;<br />
-<br />
-public class ReadingToolsTest {<br />
-<br />
-private Locale defaultLocale;<br />
-<br />
-@Before<br />
-public void setUp() {<br />
-defaultLocale = Locale.getDefault();<br />
-}<br />
-<br />
-@After<br />
-public void after() {<br />
-Locale.setDefault(defaultLocale);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnNull_whenNullStringPassed() {<br />
-assertThat(ReadingTools.parseReading(null)).isNull();<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnNull_whenInvalidStringPassed() {<br />
-assertThat(ReadingTools.parseReading("abc")).isNull();<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnCorrectNumber_whenDotIsDecimalSeparator() {<br />
-Locale.setDefault(new Locale("en"));<br />
-assertThat(ReadingTools.parseReading("1.23").doubleValue()).isEqualTo(1.23);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnCorrectNumber_whenCommaIsDecimalSeparator() {<br />
-Locale.setDefault(new Locale("fr"));<br />
-assertThat(ReadingTools.parseReading("1,23").doubleValue()).isEqualTo(1.23);<br />
-}<br />
-<br />
-@Test<br />
-public void parseDoubleCorrectly() {<br />
-double doubleValue = ReadingTools.safeParseDouble("1.01");<br />
-<br />
-assertThat(doubleValue).isCloseTo(1.01, offset(0.000000000000001));<br />
-}<br />
-<br />
-@Test<br />
-public void parseToZeroWhenException() {<br />
-double doubleValue = ReadingTools.safeParseDouble("b");<br />
-<br />
-assertThat(doubleValue).isZero();<br />
-}<br />
-}<br />
-</body>
-</html>
-package org.glucosio.android.tools;<br />
-<br />
-<br />
-import android.content.Context;<br />
-import android.graphics.Color;<br />
-import org.glucosio.android.R;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-import org.junit.runner.RunWith;<br />
-import org.mockito.Mock;<br />
-import org.mockito.runners.MockitoJUnitRunner;<br />
-<br />
-import static junit.framework.Assert.assertEquals;<br />
-import static junit.framework.Assert.assertTrue;<br />
-import static org.mockito.Mockito.when;<br />
-<br />
-@RunWith(MockitoJUnitRunner.class)<br />
-public class GlucoseRangesTest {<br />
-private static final int READING_OK = Color.parseColor("#749756");<br />
-private static final int READING_HYPER = Color.parseColor("#E86445");<br />
-private static final int READING_LOW = Color.parseColor("#4B8DDB");<br />
-private static final int READING_HIGH = Color.parseColor("#E7B85D");<br />
-private static final int READING_HYPO = Color.parseColor("#6F4EAB");<br />
-@Mock<br />
-private Context context;<br />
-@Mock<br />
-private GlucoseRanges glucoseRanges;<br />
-<br />
-@Before<br />
-public void setUp() {<br />
-when(context.getColor(R.color.glucosio_reading_hyper)).thenReturn(READING_HYPER);<br />
-when(glucoseRanges.stringToColor("red")).thenReturn(READING_HYPER);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_low)).thenReturn(READING_LOW);<br />
-when(glucoseRanges.stringToColor("blue")).thenReturn(READING_LOW);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_ok)).thenReturn(READING_OK);<br />
-when(glucoseRanges.stringToColor("green")).thenReturn(READING_OK);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_hypo)).thenReturn(READING_HYPO);<br />
-when(glucoseRanges.stringToColor("purple")).thenReturn(READING_HYPO);<br />
-<br />
-when(context.getColor(R.color.glucosio_reading_high)).thenReturn(READING_HIGH);<br />
-when(glucoseRanges.stringToColor("orange")).thenReturn(READING_HIGH);<br />
-<br />
-when(glucoseRanges.colorFromReading(65)).thenReturn("purple");<br />
-when(glucoseRanges.colorFromReading(410)).thenReturn("red");<br />
-when(glucoseRanges.colorFromReading(100)).thenReturn("green");<br />
-when(glucoseRanges.colorFromReading(130)).thenReturn("green");<br />
-when(glucoseRanges.colorFromReading(72)).thenReturn("blue");<br />
-when(glucoseRanges.colorFromReading(90)).thenReturn("blue");<br />
-when(glucoseRanges.colorFromReading(145)).thenReturn("orange");<br />
-when(glucoseRanges.colorFromReading(185)).thenReturn("orange");<br />
-<br />
-}<br />
-<br />
-@Test<br />
-public void expectPurpleWhenReadingValueIs65WithNoPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(65).equals("purple"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectRedWhenReadingValueIs210WithNoPreferredRange() {<br />
-assertEquals(glucoseRanges.colorFromReading(410), "red");<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs72WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs185WithADAPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(185).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs130WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(130).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs90WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(90).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs145WithAACEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs71WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs155WithUKNICEPreferredRange() {<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectGreenWhenReadingValueIs100WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(100).equals("green"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectBlueWhenReadingValueIs72WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(72).equals("blue"));<br />
-}<br />
-<br />
-@Test<br />
-public void expectOrangeWhenReadingValueIs145WithNoPreferredRangeAndExtValuesRange75140() {<br />
-setPreferredRange(75, 140);<br />
-assertTrue(glucoseRanges.colorFromReading(145).equals("orange"));<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnOkColorIfGreenStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_ok);<br />
-int actual = glucoseRanges.stringToColor("green");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHyperColorIfRedStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_hyper);<br />
-int actual = glucoseRanges.stringToColor("red");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnLowColorIfBlueStringGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_low);<br />
-int actual = glucoseRanges.stringToColor("blue");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHighColorIfOrangeStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_high);<br />
-int actual = glucoseRanges.stringToColor("orange");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnHypoColorIfPurpleStringIsGiven() {<br />
-int expected = context.getColor(R.color.glucosio_reading_hypo);<br />
-int actual = glucoseRanges.stringToColor("purple");<br />
-<br />
-assertEquals(expected, actual);<br />
-}<br />
-<br />
-private void setPreferredRange(int min, int max) {<br />
-glucoseRanges.setCustomMin(min);<br />
-glucoseRanges.setCustomMax(max);<br />
-}<br />
-}<br />
-Êþº¾6B<br />
--.<br />
--<br />
-/0	12<br />
-/3<br />
-/45@2<br />
-6@GY™™™™š@<³33333@£Ï€Ü3@7KÆ§ïž?·k;¸<òÐ7MG_DL_TO_MMOL_CONSTANTDConstantValueKG_TO_LB_CONSTANT<init>()VCodeLineNumberTableround(DI)DStackMapTableglucoseToMgDl(D)DglucoseToMmolLglucoseToA1Ca1cToGlucosekgToLblbToKga1cNgspToIfcca1cIfccToNgsp<br />
-SourceFileGlucosioConverter.java"java/lang/IllegalArgumentException89:;<=>?@A,org/glucosio/android/tools/GlucosioConverter java/lang/Objectjava/math/BigDecimalvalueOf(D)Ljava/math/BigDecimal;java/math/RoundingModeHALF_UPLjava/math/RoundingMode;setScale1(ILjava/math/RoundingMode;)Ljava/math/BigDecimal;doubleValue()D1	<br />
-!*·±<br />
- 	 Lœ»Y·¿&¸N-²¶N-¶¯#%&'!	"#&	k¯+	$#"<br />
-/*<br />
-* Copyright (C) 2016 Glucosio Foundation<br />
-*<br />
-* This file is part of Glucosio.<br />
-*<br />
-* Glucosio is free software: you can redistribute it and/or modify<br />
-* it under the terms of the GNU General Public License as published by<br />
-* the Free Software Foundation, version 3.<br />
-*<br />
-* Glucosio is distributed in the hope that it will be useful,<br />
-* but WITHOUT ANY WARRANTY; without even the implied warranty of<br />
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />
-* GNU General Public License for more details.<br />
-*<br />
-* You should have received a copy of the GNU General Public License<br />
-* along with Glucosio.  If not, see <http://www.gnu.org/licenses/>.<br />
-*<br />
-*<br />
-*/<br />
-<br />
-package org.glucosio.android.tools;<br />
-<br />
-import java.math.BigDecimal;<br />
-import java.math.RoundingMode;<br />
-<br />
-public final class GlucosioConverter {<br />
-<br />
-private static final double MG_DL_TO_MMOL_CONSTANT = 18.0;<br />
-private static final double KG_TO_LB_CONSTANT = 2.20462;<br />
-<br />
-private GlucosioConverter() {<br />
-}<br />
-<br />
-public static double round(double value, int places) {<br />
-if (places < 0) throw new IllegalArgumentException();<br />
-<br />
-BigDecimal bd = BigDecimal.valueOf(value);<br />
-bd = bd.setScale(places, RoundingMode.HALF_UP);<br />
-return bd.doubleValue();<br />
-}<br />
-<br />
-public static double glucoseToMgDl(double mmolL) {<br />
-return mmolL * MG_DL_TO_MMOL_CONSTANT;<br />
-}<br />
-<br />
-public static double glucoseToMmolL(double mgDl) {<br />
-return round(mgDl / MG_DL_TO_MMOL_CONSTANT, 2);<br />
-}<br />
-<br />
-public static double glucoseToA1C(double mgDl) {<br />
-// A1C = (Average glucose + 46.7) / 28.7<br />
-return round((mgDl + 46.7) / 28.7, 2);<br />
-}<br />
-<br />
-public static double a1cToGlucose(double a1c) {<br />
-// Average glucose = (A1C * 28.7) -46.7<br />
-return round((a1c * 28.7) - 46.7, 2);<br />
-}<br />
-<br />
-public static double kgToLb(double kg) {<br />
-return kg * KG_TO_LB_CONSTANT;<br />
-}<br />
-<br />
-public static double lbToKg(double lb) {<br />
-return lb / KG_TO_LB_CONSTANT;<br />
-}<br />
-<br />
-public static double a1cNgspToIfcc(double ngsp) {<br />
-// percentage to mmol/mol<br />
-// [NGSP - 2.152] / 0.09148<br />
-return round((ngsp - 2.152) / 0.09148, 2);<br />
-}<br />
-<br />
-public static double a1cIfccToNgsp(double ifcc) {<br />
-// mmol/mol to percentage<br />
-// [0.09148 * IFCC] + 2.152<br />
-return round((0.09148 * ifcc) + 2.152, 2);<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.offset;<br />
-<br />
-public class GlucosioConverterTest {<br />
-@Test<br />
-public void ShouldRoundToFloor_WhenLowerValueOfExactPointIsGiven() {<br />
-assertThat(GlucosioConverter.round(10.123, 2)).isEqualTo(10.12);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldRoundToCeil_WhenHigherValueOfExactPointIsGiven() {<br />
-assertThat(GlucosioConverter.round(10.126, 2)).isEqualTo(10.13);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMmolToMgDlExactly_WhenMgDlNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToMgDl(1)).isEqualTo(18);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMgDlToMmolExactly_WhenMmolNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToMmolL(18)).isEqualTo(1);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertMgDlToA1cExactly_WhenA1CNeeded() {<br />
-assertThat(GlucosioConverter.glucoseToA1C(18)).isEqualTo(2.25);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertA1CToGlucoseExactly_WhenGlucoseNeeded() {<br />
-assertThat(GlucosioConverter.a1cToGlucose(2.25)).isEqualTo(17.88);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertKgToLbExactly_WhenLbNeeded() {<br />
-assertThat(GlucosioConverter.kgToLb(60)).isEqualTo(132.27, offset(0.01));<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertLbToKgExactly_WhenKgNeeded() {<br />
-assertThat(GlucosioConverter.lbToKg(132)).isEqualTo(59.87, offset(0.01));<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertPercentageToA1cExactly_WhenPercentageIsUsed() {<br />
-assertThat(GlucosioConverter.a1cNgspToIfcc(5)).isEqualTo(31.13);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldConvertA1cToPercentageExactly_WhenPercentageNeeded() {<br />
-assertThat(GlucosioConverter.a1cIfccToNgsp(31.13)).isEqualTo(5);<br />
-}<br />
-}<br />
-Êþº¾6=<br />
-@$@9@I<br />
-	 <br />
-!"<br />
-#$%<init>()VCodeLineNumberTableCalculatesGlucoseToA1Cmain([Ljava/lang/String;)V<br />
-SourceFile"GlucosioConverterTestVersion2.java&'()*+BootstrapMethods,-./0128org/glucosio/android/tools/GlucosioConverterTestVersion2java/lang/Object,org/glucosio/android/tools/GlucosioConverterglucoseToA1C(D)Djava/lang/SystemoutLjava/io/PrintStream;<br />
-34 glucose level converted to makeConcatWithConstants(DD)Ljava/lang/String;java/io/PrintStreamprintln(Ljava/lang/String;)V5.9$java/lang/invoke/StringConcatFactory;LookupInnerClasses˜(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;<%java/lang/invoke/MethodHandles$Lookupjava/lang/invoke/MethodHandles!*·±	­eGI99&¸9(¸9<br />
-¸9¸9²	&º<br />
-¶²	(<br />
-º<br />
-¶²	º<br />
-¶²	º<br />
-¶±6	<br />
-#*8FUd	 ¸±<br />
-8<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.glucosio.android.tools.GlucosioConverter;<br />
-<br />
-public class GlucosioConverterTestVersion2 {<br />
-<br />
-//private static GlucosioConverter gluConverterTester = new GlucosioConverter();<br />
-public static void CalculatesGlucoseToA1C() {<br />
-double value1 = 10.0;<br />
-double value2 = 25.0;<br />
-double value3 = 50.0;<br />
-double value4 = 0.0;<br />
-double glucA1Cvalue1 = GlucosioConverter.glucoseToA1C(value1);<br />
-double glucA1Cvalue2 = GlucosioConverter.glucoseToA1C(value2);<br />
-double glucA1Cvalue3 = GlucosioConverter.glucoseToA1C(value3);<br />
-double glucA1Cvalue4 = GlucosioConverter.glucoseToA1C(value4);<br />
-System.out.println(value1 +" glucose level converted to " + glucA1Cvalue1);<br />
-System.out.println(value2 +" glucose level converted to " + glucA1Cvalue2);<br />
-System.out.println(value3 +" glucose level converted to " + glucA1Cvalue3);<br />
-System.out.println(value4 +" glucose level converted to " + glucA1Cvalue4);<br />
-}<br />
-<br />
-public static void main(String[] args) {<br />
-CalculatesGlucoseToA1C();<br />
-}<br />
-<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-<br />
-import android.text.SpannableString;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import static junit.framework.Assert.assertEquals;<br />
-import static org.junit.Assert.assertFalse;<br />
-import static org.junit.Assert.assertTrue;<br />
-<br />
-public class InputFilterMinMaxTest {<br />
-<br />
-private InputFilterMinMax ifmm = new InputFilterMinMax(3, 5);<br />
-<br />
-@Test<br />
-public void checkIfRACCA1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(1, 7, 3));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(5, 7, 3));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(5, 1, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCA4ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(3, 1, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(1, 7, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(1, 2, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(8, 4, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCB4ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(8, 6, 5));<br />
-}<br />
-<br />
-<br />
-@Test<br />
-public void checkIfRACCC1ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(3, 7, 4));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC2ValueIsInRangeFalse() {<br />
-assertFalse(ifmm.isInRange(3, 7, 2));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC3ValueIsInRangeTrue() {<br />
-assertTrue(ifmm.isInRange(6, 4, 5));<br />
-}<br />
-<br />
-@Test<br />
-public void checkIfRACCC4ValueIsInRange4False() {<br />
-assertFalse(ifmm.isInRange(6, 4, 7));<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnEmptyStringWhenNoDestAndSourceValues() {<br />
-ifmm = new InputFilterMinMax("4", "4");<br />
-assertEquals("", ifmm.filter("", 0, 0, new SpannableString(""), 0, 0));<br />
-}<br />
-<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.res.Resources;<br />
-<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import java.util.List;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class LocaleHelperTest extends RobolectricTest {<br />
-private LocaleHelper helper = new LocaleHelper();<br />
-<br />
-@Test<br />
-public void ShouldReturnAtLeastEnglish_WhenAsked() throws Exception {<br />
-final Resources resources = RuntimeEnvironment.application.getResources();<br />
-<br />
-final List<String> localesWithTranslation = helper.getLocalesWithTranslation(resources);<br />
-<br />
-assertThat(localesWithTranslation.size()).isGreaterThanOrEqualTo(1);<br />
-assertThat(localesWithTranslation).contains("en");<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.Test;<br />
-<br />
-import java.text.NumberFormat;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class NumberFormatUtilsTest {<br />
-@Test<br />
-public void SetMinimumAndMaximumNumberOfDigits() {<br />
-NumberFormat numberFormat = NumberFormatUtils.createDefaultNumberFormat();<br />
-<br />
-assertThat(numberFormat.getMinimumFractionDigits()).isZero();<br />
-assertThat(numberFormat.getMaximumFractionDigits()).isEqualTo(3);<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.Context;<br />
-import android.content.SharedPreferences;<br />
-import android.preference.PreferenceManager;<br />
-<br />
-public class Preferences {<br />
-static final String LOCALE_CLEANED = "PREF_LOCALE_CLEANED";<br />
-<br />
-private final SharedPreferences sharedPreferences;<br />
-<br />
-public Preferences(Context context) {<br />
-sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);<br />
-}<br />
-<br />
-public boolean isLocaleCleaned() {<br />
-return sharedPreferences.getBoolean(LOCALE_CLEANED, false);<br />
-}<br />
-<br />
-public void saveLocaleCleaned() {<br />
-sharedPreferences.edit().putBoolean(LOCALE_CLEANED, true).apply();<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import android.content.SharedPreferences;<br />
-import android.preference.PreferenceManager;<br />
-<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import static org.assertj.android.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-public class PreferencesTest extends RobolectricTest {<br />
-private Preferences preferences;<br />
-<br />
-@Before<br />
-public void setUp() throws Exception {<br />
-preferences = new Preferences(RuntimeEnvironment.application);<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldReturnFalseAsDefault_WhenAskedIfLocaleWasCleared() throws Exception {<br />
-assertThat(preferences.isLocaleCleaned()).isFalse();<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldReturnSavedValue_WhenLocaleIsClearedAsked() throws Exception {<br />
-SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RuntimeEnvironment.application);<br />
-sharedPreferences.edit().putBoolean(Preferences.LOCALE_CLEANED, true).apply();<br />
-<br />
-assertThat(preferences.isLocaleCleaned()).isTrue();<br />
-}<br />
-<br />
-@Test<br />
-public void ShouldSaveLocaleIsCleaned_WhenAsked() throws Exception {<br />
-preferences.saveLocaleCleaned();<br />
-<br />
-SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(RuntimeEnvironment.application);<br />
-assertThat(sharedPreferences).contains(Preferences.LOCALE_CLEANED, true);<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.glucosio.android.Constants;<br />
-import org.glucosio.android.R;<br />
-import org.glucosio.android.RobolectricTest;<br />
-import org.glucosio.android.db.GlucoseReading;<br />
-import org.junit.Assert;<br />
-import org.junit.Test;<br />
-import org.robolectric.RuntimeEnvironment;<br />
-<br />
-import java.io.ByteArrayOutputStream;<br />
-import java.io.IOException;<br />
-import java.io.OutputStreamWriter;<br />
-import java.text.NumberFormat;<br />
-import java.util.ArrayList;<br />
-import java.util.Date;<br />
-import java.util.List;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-<br />
-/**<br />
-* Created by david on 30/10/16.<br />
-*/<br />
-<br />
-public class ReadingToCSVTest extends RobolectricTest {<br />
-<br />
-private final FormatDateTime dateTool = new FormatDateTime(RuntimeEnvironment.application);<br />
-private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();<br />
-private final OutputStreamWriter osw = new OutputStreamWriter(outputStream);<br />
-private final NumberFormat numberFormat = NumberFormatUtils.createDefaultNumberFormat();<br />
-<br />
-@Test<br />
-public void GeneratesEmptyCSVWithHeader_WhenNoData() throws IOException {<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(new ArrayList<GlucoseReading>(), osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString());<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndOneLine_WhenOneReading() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, "notes"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndOneLine_WhenOneReadingInMMol() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, "notes"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MMOL_L);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MMOL_L));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithoutNulls_WhenOneReadingWithNulls() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, null, created, null));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(outputStream.toString(), headerAsString(), valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-@Test<br />
-public void GeneratesCSVWithHeaderAndLinesEscaped_WhenDataWithWrongChars() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(80, "type", created, ","));<br />
-values.add(new GlucoseReading(81, "type", created, ""E""));<br />
-values.add(new GlucoseReading(82, "type", created, "r"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-assertFileContentEqualsToString(<br />
-outputStream.toString(),<br />
-headerAsString(),<br />
-valuesAsString(values.get(0), Constants.Units.MG_DL),<br />
-valuesAsString(values.get(1), Constants.Units.MG_DL),<br />
-valuesAsString(values.get(2), Constants.Units.MG_DL)<br />
-);<br />
-}<br />
-<br />
-@Test<br />
-public void EscapeNewLine_WhenDataWithIt() throws IOException {<br />
-final Date created = new Date();<br />
-<br />
-List<GlucoseReading> values = new ArrayList<>();<br />
-values.add(new GlucoseReading(82, "type", created, "n"));<br />
-<br />
-ReadingToCSV r = new ReadingToCSV(RuntimeEnvironment.application, Constants.Units.MG_DL);<br />
-r.createCSVFile(values, osw);<br />
-<br />
-String result = outputStream.toString();<br />
-String header = headerAsString();<br />
-assertThat(result).contains(header);<br />
-String resultWithoutHeader = result.replace(header, "");<br />
-resultWithoutHeader = resultWithoutHeader.trim();<br />
-<br />
-assertThat(resultWithoutHeader).isEqualTo(valuesAsString(values.get(0), Constants.Units.MG_DL));<br />
-}<br />
-<br />
-private String headerAsString() {<br />
-return getString(R.string.dialog_add_date) +<br />
-',' +<br />
-getString(R.string.dialog_add_time) +<br />
-',' +<br />
-getString(R.string.dialog_add_concentration) +<br />
-',' +<br />
-getString(R.string.helloactivity_spinner_preferred_glucose_unit) +<br />
-',' +<br />
-getString(R.string.dialog_add_measured) +<br />
-',' +<br />
-getString(R.string.dialog_add_notes);<br />
-}<br />
-<br />
-private String getString(int stringId) {<br />
-return RuntimeEnvironment.application.getString(stringId);<br />
-}<br />
-<br />
-private String valuesAsString(GlucoseReading reading, String units) {<br />
-double readingValue = Constants.Units.MG_DL.equals(units) ?<br />
-reading.getReading() :<br />
-GlucosioConverter.glucoseToMmolL(reading.getReading());<br />
-<br />
-String reading_type = reading.getReading_type();<br />
-String notes = reading.getNotes();<br />
-<br />
-return dateTool.convertRawDate(reading.getCreated()) +<br />
-',' +<br />
-dateTool.convertRawTime(reading.getCreated()) +<br />
-',' +<br />
-numberFormat.format(readingValue) +<br />
-',' +<br />
-units +<br />
-',' +<br />
-(reading_type == null ? "" : reading_type) +<br />
-',' +<br />
-escapedCSVString(notes == null ? "" : notes);<br />
-}<br />
-<br />
-private String escapedCSVString(String s) {<br />
-if (s.contains(",") || s.contains(""") || s.contains("n") || s.contains("r"))<br />
-return """ + s.replace(""", """") + """;<br />
-else<br />
-return s;<br />
-}<br />
-<br />
-private void assertFileContentEqualsToString(String output, String... expectedValues) {<br />
-String[] lines = output.split("n");<br />
-Assert.assertEquals(expectedValues.length, lines.length);<br />
-<br />
-for (int i = 0; i < lines.length; i++) {<br />
-Assert.assertEquals(expectedValues[i], lines[i]);<br />
-}<br />
-}<br />
-}<br />
-package org.glucosio.android.tools;<br />
-<br />
-import org.junit.After;<br />
-import org.junit.Before;<br />
-import org.junit.Test;<br />
-<br />
-import java.util.Locale;<br />
-<br />
-import static org.assertj.core.api.Assertions.assertThat;<br />
-import static org.assertj.core.api.Assertions.offset;<br />
-<br />
-public class ReadingToolsTest {<br />
-<br />
-private Locale defaultLocale;<br />
-<br />
-@Before<br />
-public void setUp() {<br />
-defaultLocale = Locale.getDefault();<br />
-}<br />
-<br />
-@After<br />
-public void after() {<br />
-Locale.setDefault(defaultLocale);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnNull_whenNullStringPassed() {<br />
-assertThat(ReadingTools.parseReading(null)).isNull();<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnNull_whenInvalidStringPassed() {<br />
-assertThat(ReadingTools.parseReading("abc")).isNull();<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnCorrectNumber_whenDotIsDecimalSeparator() {<br />
-Locale.setDefault(new Locale("en"));<br />
-assertThat(ReadingTools.parseReading("1.23").doubleValue()).isEqualTo(1.23);<br />
-}<br />
-<br />
-@Test<br />
-public void shouldReturnCorrectNumber_whenCommaIsDecimalSeparator() {<br />
-Locale.setDefault(new Locale("fr"));<br />
-assertThat(ReadingTools.parseReading("1,23").doubleValue()).isEqualTo(1.23);<br />
-}<br />
-<br />
-@Test<br />
-public void parseDoubleCorrectly() {<br />
-double doubleValue = ReadingTools.safeParseDouble("1.01");<br />
-<br />
-assertThat(doubleValue).isCloseTo(1.01, offset(0.000000000000001));<br />
-}<br />
-<br />
-@Test<br />
-public void parseToZeroWhenException() {<br />
-double doubleValue = ReadingTools.safeParseDouble("b");<br />
-<br />
-assertThat(doubleValue).isZero();<br />
-}<br />
-}<br />
-</body>
-</html>
