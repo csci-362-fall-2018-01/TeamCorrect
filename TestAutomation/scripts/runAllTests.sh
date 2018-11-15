@@ -55,28 +55,22 @@ cd testCasesExecutables
 
 testAutomationPath=$PWD
 
-cd org/glucosio/android/db
-javac Reminder.java ReminderTestVersion2.java 
-report="$report <br /> <strong>TestCase1 Result</strong><br />"
-report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.ReminderTestVersion2)" 
+cd org/glucosio/android/practice
+javac *.java 
 
-cd ../tools
-javac GlucosioConverter.java GlucosioConverterTestVersion2.java 
-report="$report <br /> <strong>TestCase2 Result</strong><br />"
-report="$report $(java -classpath $testAutomationPath org.glucosio.android.tools.GlucosioConverterTestVersion2)"
+for file in *.class; do
+	
+	
+	report="$report <br /> <strong> ${file%.*} </strong><br />"
+	
+	report="$report $(java -classpath $testAutomationPath org.glucosio.android.practice.${file%.*})" 
+	
+	
+	
+done
 
-cd ../db
-javac KetoneReading.java KetoneReadingTest.java
-report="$report <br /> <strong>TestCase3 Result</strong><br />"
-report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.KetoneReadingTest)"
 
-javac WeightReading.java WeightReadingTest.java
-report="$report <br /> <strong>TestCase4 Result</strong><br />"
-report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.WeightReadingTest)"
 
-javac PressureReading.java PressureReadingTest.java
-report="$report <br /> <strong>TestCase5 Result</strong><br />"
-report="$report $(java -classpath $testAutomationPath org.glucosio.android.db.PressureReadingTest)"
 
 
 
