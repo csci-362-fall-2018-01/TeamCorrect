@@ -1,11 +1,11 @@
-package org.glucosio.android.practice;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 
 
-import org.glucosio.android.practice.KetoneReading;
+import org.glucosio.android.TeamCorrectTestExecutables.KetoneReading;
 
 
-public class KetoneReadingTest {
+public class TestCase03 {
 
     private static KetoneReading readingTester = new KetoneReading();
     public void setup(){

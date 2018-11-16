@@ -18,7 +18,7 @@
  *
  */
 
-package org.glucosio.android.practice;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 import java.util.Date;
 

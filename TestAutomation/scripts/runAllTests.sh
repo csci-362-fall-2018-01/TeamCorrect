@@ -55,29 +55,22 @@ cd testCasesExecutables
 
 testAutomationPath=$PWD
 
-cd org/glucosio/android/practice
+cd org/glucosio/android/TeamCorrectTestExecutables
 javac *.java 
 
+
 for file in *.class; do
-	
+	if grep -q TestCase "$file"; then
 	
 	report="$report <br /> <strong> ${file%.*} </strong><br />"
 	
-	report="$report $(java -classpath $testAutomationPath org.glucosio.android.practice.${file%.*})" 
-	
+	report="$report $(java -classpath $testAutomationPath org.glucosio.android.TeamCorrectTestExecutables.${file%.*})" 
+	fi
 	
 	
 done
 
 
-
-
-
-
-#for t in `ls $PWD`; do
-	#compile if necessary
-	#run
-#done
 cd ..
 cd ..
 cd ..

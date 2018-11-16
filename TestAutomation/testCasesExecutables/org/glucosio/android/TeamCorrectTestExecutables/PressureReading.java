@@ -18,33 +18,44 @@
  *
  */
 
-package org.glucosio.android.practice;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 
 
 import java.util.Date;
 
-public class WeightReading  {
+public class PressureReading  {
     
     private long id;
 
-    private double reading;
+    private double minReading;
+    private double maxReading;
     private Date created;
 
-    public WeightReading() {
+    public PressureReading() {
     }
 
-    public WeightReading(double reading, Date created) {
-        this.reading = reading;
+    public PressureReading(double minReading, double maxReading, Date created) {
+        // mm/Hg
+        this.minReading = minReading;
+        this.maxReading = maxReading;
         this.created = created;
     }
 
-    public double getReading() {
-        return reading;
+    public double getMinReading() {
+        return minReading;
     }
 
-    public void setReading(double reading) {
-        this.reading = reading;
+    public void setMinReading(double minReading) {
+        this.minReading = minReading;
+    }
+
+    public double getMaxReading() {
+        return maxReading;
+    }
+
+    public void setMaxReading(double maxReading) {
+        this.maxReading = maxReading;
     }
 
     public Date getCreated() {
@@ -62,7 +73,4 @@ public class WeightReading  {
     public void setId(long id) {
         this.id = id;
     }
-	   public static void main(String[] args) {
-	System.out.println("Test Completed");
-}
 }

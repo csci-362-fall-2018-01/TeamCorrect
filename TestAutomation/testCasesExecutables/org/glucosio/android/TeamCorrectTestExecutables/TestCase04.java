@@ -1,9 +1,9 @@
-package org.glucosio.android.practice;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.practice.WeightReading;
+import org.glucosio.android.TeamCorrectTestExecutables.WeightReading;
 
 
-public class WeightReadingTest {
+public class TestCase04 {
 
     private static WeightReading weightReadingTester = new WeightReading();
 
