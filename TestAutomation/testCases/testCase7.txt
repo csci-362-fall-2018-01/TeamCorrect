@@ -1,6 +1,6 @@
 Test Number: 07
 
-Requirement being tested: RS018 Build User
+Requirement being tested: RS017 Build User
 
 Component being tested: User.java
 
