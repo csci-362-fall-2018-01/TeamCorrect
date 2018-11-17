@@ -56,7 +56,7 @@ cd testCasesExecutables
 testAutomationPath=$PWD
 
 cd org/glucosio/android/TeamCorrectTestExecutables
-javac *.java 
+javac -classpath $testAutomationPath/joda-time-2.10.1.jar *.java 
 
 
 for file in *.class; do
@@ -64,7 +64,7 @@ for file in *.class; do
 	
 	report="$report <br /> <strong> ${file%.*} </strong><br />"
 	
-	report="$report $(java -classpath $testAutomationPath org.glucosio.android.TeamCorrectTestExecutables.${file%.*})" 
+	report="$report $(java -classpath $testAutomationPath:$testAutomationPath/joda-time-2.10.1.jar org.glucosio.android.TeamCorrectTestExecutables.${file%.*})" 
 	fi
 	
 	
