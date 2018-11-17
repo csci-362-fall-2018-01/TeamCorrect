@@ -1,0 +1,26 @@
+Team Correct	
+REQUIREMENTS
+
+RS001: Record user input 
+Glucose
+HbA1C reading 
+Cholesterol level 
+Blood pressure
+Ketones
+Body weight
+RS002: Display last check
+RS003: Provide a log of user inputs for the past days
+RS004: Display graphically
+RS005: Opt in option of sharing diabetes data with researchers (API)
+RS006: Connect to other services (Google Fit, My Fitness Pal)
+RS007: Export data to various formats and services 
+RS008: Sleep
+RS009: Treatments
+RS010: Medication
+RS011: Exercise
+RS012: Food and carbs
+RS013: Set reminders
+RS014: Export pictures of graphs to camera roll 
+RS015: Log diabetes type
+RS016: Provide tips
+RS018: Build User

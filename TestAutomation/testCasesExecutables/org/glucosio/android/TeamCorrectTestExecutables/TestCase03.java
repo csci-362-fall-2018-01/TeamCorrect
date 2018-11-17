@@ -15,28 +15,28 @@ public class TestCase03 {
     public static void SetsId_WhenProvided() {
         int id = 1234;
         readingTester.setId(id);
-        System.out.println("Id returned = " + readingTester.getId());
+        System.out.println("---- Id returned = " + readingTester.getId());
     }
 
 
     public static void SetsId_WhenProvided2() {
         int id = 146789;
         readingTester.setId(id);
-        System.out.println("Id returned = " + readingTester.getId());
+        System.out.println(" ---- Id returned = " + readingTester.getId());
 
     }
 
     public static void SetReading_WhenProvided() {
         double reading = 2.0;
         readingTester.setReading(reading);
-        System.out.println("Reading returned = " + readingTester.getReading());
+        System.out.println(" ---- Reading returned = " + readingTester.getReading());
 
     }
 
     public static void SetReading_WhenProvided2() {
         double reading = 10.0;
         readingTester.setReading(reading);
-        System.out.println("Reading returned = " + readingTester.getReading());
+        System.out.println(" ---- Reading returned = " + readingTester.getReading() + " ----");
 
 
     }

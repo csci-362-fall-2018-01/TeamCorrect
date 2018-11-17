@@ -64,7 +64,7 @@ for file in *.class; do
 	
 	report="$report <br /> <strong> ${file%.*} </strong><br />"
 	
-	report="$report $(java -classpath $testAutomationPath org.glucosio.android.TeamCorrectTestExecutables.${file%.*})" 
+	report="$report <br /> $(java -classpath $testAutomationPath org.glucosio.android.TeamCorrectTestExecutables.${file%.*}) <br />" 
 	fi
 	
 	
