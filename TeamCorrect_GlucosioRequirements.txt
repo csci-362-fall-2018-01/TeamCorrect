@@ -23,4 +23,4 @@ RS013: Set reminders
 RS014: Export pictures of graphs to camera roll 
 RS015: Log diabetes type
 RS016: Provide tips
-RS018: Build User
+RS017: Build User
