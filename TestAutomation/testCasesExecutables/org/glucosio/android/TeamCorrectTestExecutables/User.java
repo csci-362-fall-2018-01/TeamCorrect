@@ -20,13 +20,11 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-//import io.realm.RealmObject;
-//import io.realm.annotations.PrimaryKey;
-//import io.realm.annotations.Required;
+
 
 public class User  {
 
-    //@PrimaryKey
+    
     private int id;
     private String name;
     private String preferred_language;
@@ -35,9 +33,7 @@ public class User  {
     private String gender;
     private int d_type;
     private String preferred_unit;
-    //@Required
     private String preferred_unit_a1c;
-    //@Required
     private String preferred_unit_weight;
     private String preferred_range;
     private double custom_range_min;

@@ -19,7 +19,7 @@ public class TestCase01 {
 
         reminderTester.setId(id);
       
-        System.out.println("Id returned = " + reminderTester.getId());
+        System.out.println("---- Id returned = " + reminderTester.getId());
         
     }
 
@@ -29,7 +29,7 @@ public class TestCase01 {
 
         reminderTester.setId(id);
 
-        System.out.println("Id returned = " + reminderTester.getId());
+        System.out.println(" ---- Id returned = " + reminderTester.getId());
     }
     
     public static void SetsMetric_WhenProvided() {
@@ -37,7 +37,7 @@ public class TestCase01 {
 
         reminderTester.setMetric(metric);
 
-        System.out.println("Metric returned = " + reminderTester.getMetric());
+        System.out.println(" ---- Metric returned = " + reminderTester.getMetric());
         
     }
     
@@ -46,7 +46,7 @@ public class TestCase01 {
 
         reminderTester.setMetric(metric);
 
-        System.out.println("Metric returned = " + reminderTester.getMetric());
+        System.out.println(" ---- Metric returned = " + reminderTester.getMetric());
     }
     
     public static void SetsActive_WhenProvided() {
@@ -54,7 +54,7 @@ public class TestCase01 {
 
         reminderTester.setActive(active);
 
-        System.out.println("Is Active returned = " + reminderTester.isActive());
+        System.out.println(" ---- Is Active returned = " + reminderTester.isActive() + " ----");
         
     }
     public static void main(String[] args) {

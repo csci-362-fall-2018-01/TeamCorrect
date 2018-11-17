@@ -1,21 +1,17 @@
 Test Number: 07
 
-Requirement being tested: RS001 Record user input - Cholesterol Level
+Requirement being tested: RS017 Build User
 
-Component being tested: CholesterolReading.java
+Component being tested: User.java
 
-Method being tested: setTotalReading, setLDLReading, setHDLReading, setId
+Method being tested: createUser, setName, setD_type, setCounty
 
 Test input(s) including command-line argument(s):
-totalReading = 190.0
-LDLReading = 90.0
-HDLReading = 70.0
-ID = 1234
-ID = 146789
+Name = "Bob"
+Type = 1
+Country = "United States"
 
 Expected outcome(s):
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
+Bob's name set to Bob 
+Bob's diabetes type set to Type 1 
+Bob's country set to United States 
