@@ -18,7 +18,7 @@
  *
  */
 
-package org.glucosio.android.tools;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
