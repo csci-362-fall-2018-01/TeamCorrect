@@ -4,7 +4,7 @@ import io.realm.annotations.PrimaryKey;
 import java.util.Date;
 
 package org.glucosio.android.TeamCorrectTestExecutables;
-import org.glucosio.android.TeamCorrectTestExecutables.KetoneReading;
+import org.glucosio.android.TeamCorrectTestExecutables.GlucoseReading;
 
 
 public class TestCase17 {
