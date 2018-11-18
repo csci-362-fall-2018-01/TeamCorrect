@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 
 package org.glucosio.android.TeamCorrectTestExecutables;
-import org.glucosio.android.TeamCorrectTestExecutables.KetoneReading;
+import org.glucosio.android.TeamCorrectTestExecutables.ReadingTools;
 
 
 public class TestCase20 {
