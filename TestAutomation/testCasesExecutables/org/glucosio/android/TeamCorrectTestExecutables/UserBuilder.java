@@ -14,6 +14,10 @@ public class UserBuilder {
     private String pRange;
     private double minRange;
     private double maxRange;
+    
+    public UserBuilder(){
+        
+    }
 
     public UserBuilder setId(int id) {
         this.id = id;

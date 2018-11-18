@@ -1,0 +1,22 @@
+Test Number: 09
+
+Requirement being tested: RS018: Provide correct Glucose calculations based on User's data
+
+
+Component being tested: GlucoseData
+
+Method being tested:  glucose
+
+Test input(s) including command-line argument(s):
+mgdl: 10, mmol: true
+mgdl: 50, mmol: true
+mgdl: 100, mmol: true
+mgdl: 0, mmol: true
+
+Expected outcome(s):
+mgdl: 10, mmol: true, Glucose: .6
+mgdl: 50, mmol: true, Glucose: 2.8
+mgdl: 100, mmol: true, Glucose: 5.6
+mgdl: 0, mmol: true, Glucose: .0
+
+
