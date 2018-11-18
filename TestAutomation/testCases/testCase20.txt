@@ -3,7 +3,7 @@ Test Number: 20
 Requirement being tested: ReadingTools
 Component being tested: ReadingTools.java
 
-Method being tested: hourToSpinnerType
+Method being tested: parseReading
 
 Test input(s) including command-line argument(s):
 value = 6
