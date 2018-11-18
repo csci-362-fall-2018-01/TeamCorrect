@@ -1,0 +1,19 @@
+Test Number: 16
+
+Requirement being tested: HB1ACReading
+Component being tested: HB1ACReading.java
+
+Method being tested: setID, getId, setReading, getReading
+
+Test input(s) including command-line argument(s):
+Id = 1234
+Id = 146789
+Reading = 2.0
+Reading = 10.0
+
+
+Expected outcome(s):
+Id returned = 1234
+Id returned = 146789
+Reading Returned = 2.0
+Reading Returned = 10.0
