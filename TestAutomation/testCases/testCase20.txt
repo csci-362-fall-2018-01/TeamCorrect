@@ -1,0 +1,36 @@
+Test Number: 20
+
+Requirement being tested: ReadingTools
+Component being tested: ReadingTools.java
+
+Method being tested: hourToSpinnerType
+
+Test input(s) including command-line argument(s):
+hours = 2
+hours = 6
+hours = 8
+hours = 12
+hours = 16
+hours = 18
+hours = 24
+
+
+
+
+Expected outcome(s):
+2
+night time
+6
+before breakfast
+8
+after breakfast
+12
+before lunch
+16
+before dinner
+18
+after dinner
+24
+night time
+
+
