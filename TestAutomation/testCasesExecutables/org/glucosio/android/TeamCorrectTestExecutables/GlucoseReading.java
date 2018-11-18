@@ -18,7 +18,8 @@
  *
  */
 
-package org.glucosio.android.db;
+package org.glucosio.android.TeamCorrectTestExecutables;
+
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
