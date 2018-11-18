@@ -19,6 +19,6 @@ Expected outcome(s):
 str to number "6" = 6
 str to number "1" = 1
 str to number "2.3" = 2.3
-str to number "8.1" = 6
+str to number "8.1" = 8.1
 
 
