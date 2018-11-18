@@ -14,8 +14,8 @@ ID = 1234
 ID = 146789
 
 Expected outcome(s):
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
-Test Passed - Correct Value Returned
+Total reading set to 190.0 
+LDL reading set to 90.0 
+HDL reading set to 70.0
+ID set to 1234
+ID set to 146789 
