@@ -1,6 +1,3 @@
-package org.glucosio.android.tools;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 import org.glucosio.android.TeamCorrectTestExecutables.GlucosioConverter;
