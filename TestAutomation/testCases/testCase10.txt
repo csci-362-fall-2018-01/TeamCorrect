@@ -1,0 +1,22 @@
+Test Number: 10
+
+Requirement being tested: RS007: Export data to various formats and services
+
+Component being tested: ReadingTools
+
+Method being tested: testHourToSpinnerType 
+
+Test input(s) including command-line argument(s):
+Hour: 24
+Hour: 8
+Hour: 4 
+Hour: 19
+
+Expected outcome(s):
+Hour: 24, SpinnerType: 8, Time of day: night
+Hour: 8, SpinnerType: 1, Time of day: after breakfast 
+Hour: 4, SpinnerType: 8, Time of day: night 
+Hour: 19, SpinnerType: 4, Time of day: before dinner 
+
+
+
