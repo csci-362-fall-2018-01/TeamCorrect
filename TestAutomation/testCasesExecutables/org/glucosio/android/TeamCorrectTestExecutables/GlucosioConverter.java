@@ -18,7 +18,7 @@
  *
  */
 
-package org.glucosio.android.TeamCorrectTestExecutables;
+package org.glucosio.android.tools;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -40,6 +40,7 @@ public final class GlucosioConverter {
     }
 
     public static double glucoseToMgDl(double mmolL) {
+
         return mmolL * MG_DL_TO_MMOL_CONSTANT;
     }
 
@@ -47,10 +48,12 @@ public final class GlucosioConverter {
         return round(mgDl / MG_DL_TO_MMOL_CONSTANT, 2);
     }
 
+
     public static double glucoseToA1C(double mgDl) {
         // A1C = (Average glucose + 46.7) / 28.7
         return round((mgDl + 46.7) / 28.7, 2);
     }
+
 
     public static double a1cToGlucose(double a1c) {
         // Average glucose = (A1C * 28.7) -46.7
@@ -65,12 +68,13 @@ public final class GlucosioConverter {
         return lb / KG_TO_LB_CONSTANT;
     }
 
+
     public static double a1cNgspToIfcc(double ngsp) {
         // percentage to mmol/mol
         // [NGSP - 2.152] / 0.09148
         return round((ngsp - 2.152) / 0.09148, 2);
     }
-
+    //***
     public static double a1cIfccToNgsp(double ifcc) {
         // mmol/mol to percentage
         // [0.09148 * IFCC] + 2.152
