@@ -18,7 +18,7 @@
  *
  */
 
-package org.glucosio.android.tools;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 import android.support.annotation.Nullable;
 
