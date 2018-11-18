@@ -1,6 +1,3 @@
-package org.glucosio.android.object;
-import org.glucosio.android.tools.GlucosioConverter;
-import java.text.NumberFormat;
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 import org.glucosio.android.TeamCorrectTestExecutables.A1cEstimate;
