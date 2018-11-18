@@ -1,7 +1,3 @@
-package org.glucosio.android.tools;
-import android.support.annotation.Nullable;
-import java.text.NumberFormat;
-import java.text.ParseException;
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 import org.glucosio.android.TeamCorrectTestExecutables.ReadingTools;
