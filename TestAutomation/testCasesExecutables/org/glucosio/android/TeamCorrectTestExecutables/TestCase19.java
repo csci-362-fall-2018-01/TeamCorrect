@@ -34,7 +34,7 @@ public class TestCase19 {
     }
 
     public static void a1cIfccToNgspTest() {
-        double value = 6.0;
+        double value = 64;
         System.out.println("a1cIfccToNgsp: " + test.a1cIfccToNgsp(value));
     }
 
