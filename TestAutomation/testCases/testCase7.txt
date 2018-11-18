@@ -4,7 +4,7 @@ Requirement being tested: RS017 Build User
 
 Component being tested: User.java
 
-Method being tested: createUser, setName, setD_type, setCounty
+Method being tested: createUser, setName, setD_type, setCounty, seta1cUnit, setMinimum, setMaximum
 
 Test input(s) including command-line argument(s):
 Name = "Bob"

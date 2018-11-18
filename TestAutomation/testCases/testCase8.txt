@@ -1,0 +1,21 @@
+Test Number: 08
+
+Requirement being tested: RS016: Provide tips
+
+Component being tested: ActionTip.java
+
+Method being tested: getTipTitle, getTipDescription
+
+Test input(s) including command-line argument(s):
+TipTitle = "Diabetes Tip #1"
+TipDescription = "Use whole foods in cooking like brown rice and whole wheat pasta."
+TipTitle = "Diabetes Tip #2"
+TipDescription = "Try to eat at least 8 grams of fiber per meal."
+
+
+Expected outcome(s):
+Tip title: Diabetes Tip #1 
+Use whole foods in cooking like brown rice and whole wheat pasta. 
+Tip title: Diabetes Tip #2 
+Try to eat at least 8 grams of fiber per meal.
+
