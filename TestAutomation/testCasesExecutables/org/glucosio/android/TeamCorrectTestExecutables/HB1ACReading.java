@@ -20,13 +20,12 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
+
 
 import java.util.Date;
 
-public class HB1ACReading extends RealmObject {
-    @PrimaryKey
+public class HB1ACReading{
+    
     private long id;
 
     private double reading;

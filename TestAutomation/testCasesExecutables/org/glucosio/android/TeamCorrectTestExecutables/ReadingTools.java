@@ -20,7 +20,7 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import android.support.annotation.Nullable;
+
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -57,7 +57,7 @@ public class ReadingTools {
      * @param reading reading number String
      * @return reading Number
      */
-    @Nullable
+    
     public static Number parseReading(String reading) {
         if (reading == null)
             return null;

@@ -7,6 +7,9 @@ public class A1cEstimate {
     private double value;
     private String month;
 
+    public A1cEstimate(){
+        
+    }
     public A1cEstimate(double value, String month) {
         this.value = value;
         this.month = month;

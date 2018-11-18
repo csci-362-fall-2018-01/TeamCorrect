@@ -28,7 +28,7 @@ public final class GlucosioConverter {
     private static final double MG_DL_TO_MMOL_CONSTANT = 18.0;
     private static final double KG_TO_LB_CONSTANT = 2.20462;
 
-    private GlucosioConverter() {
+    public GlucosioConverter() {
     }
 
     public static double round(double value, int places) {
