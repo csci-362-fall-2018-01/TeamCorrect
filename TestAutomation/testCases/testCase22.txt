@@ -1,7 +1,7 @@
 Test Number: 22
 
 Requirement being tested:
-Component being tested: SplitDateTime.java
+Component being tested: IntGraphObject.java
 
 Method being tested:
 

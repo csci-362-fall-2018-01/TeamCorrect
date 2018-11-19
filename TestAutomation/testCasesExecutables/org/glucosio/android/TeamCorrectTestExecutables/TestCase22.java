@@ -1,25 +1,25 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
-//Test of SplitDateTime
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class TestCase22 {
-    //TODO: Format output
-    private static SplitDateTime sdtTester;
+    //TODO: Fix output
+    //Write text test case
+    private static IntGraphObject intGraphObjectTester;
+
+
     public static void setup(){
-        sdtTester = new SplitDateTime(new Date(),DateFormat.getDateInstance());
+
+        DateTime dateTime = new DateTime();
+        intGraphObjectTester = new IntGraphObject(dateTime, 10);
     }
 
 
     public static void main(String[] args) {
         setup();
-        System.out.println(sdtTester.getMinute());
-        System.out.println(sdtTester.getHour());
-        System.out.println(sdtTester.getDay());
-        System.out.println(sdtTester.getMonth());
-        System.out.println(sdtTester.getYear());
-        return;
+        System.out.println(intGraphObjectTester.getCreated().toString());
+        System.out.println(intGraphObjectTester.getReading());
+
+
     }
 }
