@@ -3,7 +3,7 @@ Test Number: 22
 Requirement being tested:
 Component being tested: IntGraphObject.java
 
-Method being tested:
+Method being tested: get/setReading(), get/setCreated()
 
 Test input(s) including command-line argument(s):
 
