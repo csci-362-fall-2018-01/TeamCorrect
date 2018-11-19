@@ -1,9 +1,11 @@
-Test Number:
+Test Number: 24
 
 Requirement being tested:
-Component being tested:
+Component being tested: NumberFormatUtils.java
 
-Method being tested:
+Method being tested: 
+getMinimumFractionDigits()
+getMaximumFractionDigits()
 
 Test input(s) including command-line argument(s):
 
@@ -12,4 +14,4 @@ Test input(s) including command-line argument(s):
 
 
 Expected outcome(s):
-
+0 3
