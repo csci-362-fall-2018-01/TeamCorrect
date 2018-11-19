@@ -79,3 +79,9 @@ This deliverable contains our testing framework and 5 of 25 test cases to run.
 
 Files:
 [team-correct]_deliverable3.pdf
+
+# Deliverable #4
+This deliverable contains our updated testing framework and 25 test cases to run.
+
+Files:
+[team-correct]_deliverable4.pdf
