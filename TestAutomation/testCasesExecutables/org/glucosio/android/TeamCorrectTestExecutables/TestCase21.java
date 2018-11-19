@@ -3,7 +3,8 @@ package org.glucosio.android.TeamCorrectTestExecutables;
 import org.joda.time.DateTime;
 
 public class TestCase21 {
-
+    //TODO: Fix output
+    //Write text test case
     private static DoubleGraphObject doubleGraphObjectTester;
 
 
@@ -13,7 +14,6 @@ public class TestCase21 {
         doubleGraphObjectTester = new DoubleGraphObject(dateTime, 10.0);
     }
 
-    //
 
     public static void main(String[] args) {
         setup();
