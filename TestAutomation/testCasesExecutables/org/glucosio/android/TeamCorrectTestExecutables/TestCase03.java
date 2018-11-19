@@ -1,14 +1,9 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-
-
-import org.glucosio.android.TeamCorrectTestExecutables.KetoneReading;
-
-
 public class TestCase03 {
 
-    private static KetoneReading readingTester = new KetoneReading();
-    public void setup(){
+    private static KetoneReading readingTester;
+    public static void setup(){
         readingTester = new KetoneReading();
     }
 
@@ -42,6 +37,7 @@ public class TestCase03 {
     }
 
     public static void main(String[] args) {
+        setup();
         SetsId_WhenProvided();
         SetsId_WhenProvided2();
         SetReading_WhenProvided();

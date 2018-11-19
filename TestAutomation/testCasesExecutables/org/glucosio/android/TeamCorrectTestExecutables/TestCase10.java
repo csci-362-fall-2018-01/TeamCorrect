@@ -1,12 +1,10 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.ReadingTools;
-
 
 public class TestCase10 {
 
-    private static ReadingTools rtTester = new ReadingTools();
-    
+    private static ReadingTools rtTester;
+    private static void setup(){ rtTester = new ReadingTools(); }
 
     public static void testHourToSpinnerType(int hour) {
         
@@ -42,6 +40,7 @@ public class TestCase10 {
 
 
     public static void main(String[] args) {
+        setup();
         System.out.println("---- ");
         testHourToSpinnerType(24);
         testHourToSpinnerType(8);

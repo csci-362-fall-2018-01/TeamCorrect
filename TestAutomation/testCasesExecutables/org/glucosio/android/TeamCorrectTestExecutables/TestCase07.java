@@ -1,14 +1,12 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.User;
-
 
 public class TestCase07 {
 
-    private static User userTester = new User();
+    private static User userTester;
 
 
-    public void setup(){
+    public static void setup(){
         userTester = new User();
     }
 
@@ -59,6 +57,7 @@ public class TestCase07 {
 
 
     public static void main(String[] args) {
+        setup();
         String name = "Bob";
         SetsName_WhenProvided(name);
         SetsDType_WhenProvided(name, 1);

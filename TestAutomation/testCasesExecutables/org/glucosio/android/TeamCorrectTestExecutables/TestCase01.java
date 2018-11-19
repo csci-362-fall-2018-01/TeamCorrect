@@ -1,14 +1,13 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.Reminder;
 
 
 public class TestCase01 {
 
-    private static Reminder reminderTester = new Reminder();
+    private static Reminder reminderTester;
 
    
-    public void setup(){
+    public static void setup(){
         reminderTester = new Reminder();
     }
 
@@ -58,6 +57,7 @@ public class TestCase01 {
         
     }
     public static void main(String[] args) {
+        setup();
     	SetsId_WhenProvided();
     	SetsId_WhenProvided2();
     	SetsMetric_WhenProvided();

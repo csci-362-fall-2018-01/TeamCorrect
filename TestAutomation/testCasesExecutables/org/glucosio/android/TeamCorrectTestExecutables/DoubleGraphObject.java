@@ -1,4 +1,4 @@
-package org.glucosio.android.object;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
 import org.joda.time.DateTime;
 

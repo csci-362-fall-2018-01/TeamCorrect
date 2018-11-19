@@ -1,15 +1,13 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.GlucoseData;
-
 
 public class TestCase09 {
 
-    private static GlucoseData gdTester = new GlucoseData();
+    private static GlucoseData gdTester;
     
 
 
-    public void setup(){
+    public static void setup(){
         gdTester = new GlucoseData();
     }
 
@@ -26,6 +24,7 @@ public class TestCase09 {
 
 
     public static void main(String[] args) {
+        setup();
         System.out.println("---- ");
         FormatGlucoseData_WhenProvided(10, true);
         FormatGlucoseData_WhenProvided(50, true);

@@ -1,14 +1,11 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.PressureReading;
-
-
 public class TestCase05 {
 
-    private static PressureReading pressureReadingTester = new PressureReading();
+    private static PressureReading pressureReadingTester;
 
 
-    public void setup(){
+    public static void setup(){
         pressureReadingTester = new PressureReading();
     }
 
@@ -46,6 +43,7 @@ public class TestCase05 {
     }
 
     public static void main(String[] args) {
+        setup();
         SetsId_WhenProvided();
         SetsId_WhenProvided2();
         SetsMinReading_WhenProvided();

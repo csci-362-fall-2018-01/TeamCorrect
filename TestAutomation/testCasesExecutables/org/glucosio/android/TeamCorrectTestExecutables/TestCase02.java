@@ -1,7 +1,5 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.GlucosioConverter;
-
 public class TestCase02 {
 	
 	//private static GlucosioConverter gluConverterTester = new GlucosioConverter();

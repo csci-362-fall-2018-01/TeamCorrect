@@ -1,7 +1,6 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
 import org.joda.time.DateTime;
-import org.glucosio.android.TeamCorrectTestExecutables.DoubleGraphObject;
 
 public class TestCase21 {
 

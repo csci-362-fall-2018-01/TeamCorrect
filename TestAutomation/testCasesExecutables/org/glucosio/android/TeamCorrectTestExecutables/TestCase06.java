@@ -1,14 +1,11 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.CholesterolReading;
-
-
 public class TestCase06 {
 
-    private static CholesterolReading cholTester = new CholesterolReading();
+    private static CholesterolReading cholTester;
 
 
-    public void setup(){
+    public static void setup(){
         cholTester = new CholesterolReading();
     }
 
@@ -46,6 +43,7 @@ public class TestCase06 {
 
 
     public static void main(String[] args) {
+        setup();
         SetsTotalReading_WhenProvided(190.0);
         SetsLDLReading_WhenProvided(90.0);
         SetsHDLReading_WhenProvided(70.0);

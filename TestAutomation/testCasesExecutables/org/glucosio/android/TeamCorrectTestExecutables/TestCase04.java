@@ -1,14 +1,11 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.WeightReading;
-
-
 public class TestCase04 {
 
-    private static WeightReading weightReadingTester = new WeightReading();
+    private static WeightReading weightReadingTester;
 
 
-    public void setup(){
+    public static void setup(){
         weightReadingTester = new WeightReading();
     }
 
@@ -46,6 +43,7 @@ public class TestCase04 {
     }
 
     public static void main(String[] args) {
+        setup();
         SetsId_WhenProvided();
         SetsId_WhenProvided2();
         SetsReading_WhenProvided();

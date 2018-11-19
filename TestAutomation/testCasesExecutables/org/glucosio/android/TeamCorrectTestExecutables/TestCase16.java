@@ -1,12 +1,11 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
-import org.glucosio.android.TeamCorrectTestExecutables.HB1ACReading;
 
 
 public class TestCase16 {
 
-    private static HB1ACReading test = new HB1ACReading();
-    public void setup(){
+    private static HB1ACReading test;
+    public static void setup(){
         test = new HB1ACReading();
     }
 
@@ -40,6 +39,7 @@ public class TestCase16 {
     }
 
     public static void main(String[] args) {
+        setup();
         SetsId_WhenProvided();
         SetsId_WhenProvided2();
         SetReading_WhenProvided();

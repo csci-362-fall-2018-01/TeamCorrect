@@ -1,14 +1,12 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import org.glucosio.android.TeamCorrectTestExecutables.ActionTip;
-
 
 public class TestCase08 {
 
-    private static ActionTip actionTester = new ActionTip();
+    private static ActionTip actionTester;
 
 
-    public void setup(){
+    public static void setup(){
         actionTester = new ActionTip();
     }
 
@@ -31,6 +29,7 @@ public class TestCase08 {
 
 
     public static void main(String[] args) {
+        setup();
         SetsTipTitle_WhenProvided("Diabetes Tip #1");
         SetsTipDescription_WhenProvided("Use whole foods in cooking like brown rice and whole wheat pasta.");
         SetsTipTitle_WhenProvided("Diabetes Tip #2");
