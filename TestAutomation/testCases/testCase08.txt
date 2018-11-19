@@ -1,6 +1,6 @@
 Test Number: 08
 
-Requirement being tested: RS016: Provide tips
+Requirement being tested: RS016 Provide Tips
 
 Component being tested: ActionTip.java
 
