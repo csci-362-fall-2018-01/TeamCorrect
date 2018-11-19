@@ -1,6 +1,6 @@
 Test Number: 09
 
-Requirement being tested: RS018: Provide correct Glucose calculations based on User's data
+Requirement being tested: RS018 Provide correct Glucose calculations based on User's data
 
 
 Component being tested: GlucoseData
