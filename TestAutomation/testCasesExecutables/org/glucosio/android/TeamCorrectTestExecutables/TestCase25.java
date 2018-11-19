@@ -10,7 +10,7 @@ public class TestCase25 {
 
     public static void main(String[] args) {
         setup();
-        System.out.println("Test Passed");
+        System.out.println("Test Failed");
         return;
     }
 }
