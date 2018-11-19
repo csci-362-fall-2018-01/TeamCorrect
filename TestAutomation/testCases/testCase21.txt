@@ -1,0 +1,15 @@
+Test Number: 21
+
+Requirement being tested: Graph Objects
+Component being tested: DoubleGraphObject.java
+
+Method being tested: get/setReading(), get/setCreated()
+
+Test input(s) including command-line argument(s):
+
+
+
+
+
+Expected outcome(s):
+

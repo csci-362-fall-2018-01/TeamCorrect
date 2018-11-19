@@ -1,0 +1,15 @@
+Test Number: 22
+
+Requirement being tested:
+Component being tested: SplitDateTime.java
+
+Method being tested:
+
+Test input(s) including command-line argument(s):
+
+
+
+
+
+Expected outcome(s):
+
