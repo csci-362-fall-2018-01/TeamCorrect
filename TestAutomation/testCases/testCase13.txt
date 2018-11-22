@@ -1,14 +1,19 @@
 Test Number: 13
 
-Requirement being tested:
+Requirement being tested: Random number generator range
 
-Component being tested:
+Component being tested: GlucosioNotificationManager
 
-Method being tested:
+Method being tested: generateRandomNumber
 
 Test input(s) including command-line argument(s):
-
-
+min: 10, max: 100
+min: 50, max: 500
+min: 1, max: 11
+min: 0, max: 90
 
 Expected outcome(s):
-
+Number between the 10 and 100
+Number between the 50 and 500
+Number between the 1 and 11
+Number between the 0 and 90
