@@ -14,7 +14,7 @@ public class TestCase11 {
         grTester = new GlucoseRanges();
     }
 
-    public String colorFromReading(double reading) {
+    public String stringToColor(double reading) {
 
         String grReturn = grTester.stringToColor(reading);
 
