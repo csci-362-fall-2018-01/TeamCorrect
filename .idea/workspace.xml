@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81ebf361-f4f8-4586-8c46-b9ef85a8ce41" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase11.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucosioNotificationManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,14 +25,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="15" />
-          <entry key="java" value="60" />
+          <entry key="java" value="63" />
           <entry key="txt" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="15" />
-          <entry key="JAVA" value="60" />
+          <entry key="JAVA" value="63" />
           <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
@@ -57,27 +57,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestAutomation/testCases/testCase11.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase11.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestAutomation/testCases/testCase12.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -86,28 +65,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase12.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucoseRanges.java">
+        <entry file="file://$PROJECT_DIR$/TestAutomation/project/glucosio-android-develop/app/src/main/java/org/glucosio/android/tools/GlucosioNotificationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="89" column="34" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-422" />
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucosioNotificationManager.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -403,16 +379,15 @@
       <workItem from="1541791530606" duration="1973000" />
       <workItem from="1542608873790" duration="883000" />
       <workItem from="1542859031861" duration="777000" />
-      <workItem from="1542859844327" duration="1851000" />
+      <workItem from="1542859844327" duration="2113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7356000" />
+    <option name="totallyTimeSpent" value="7618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -451,27 +426,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucoseReading.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <folding>
-            <element signature="e#0#1480#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase01.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#1488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase01.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase13.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -729,20 +683,26 @@
     <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase12.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucoseRanges.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="89" column="34" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestAutomation/testCases/testCase11.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestAutomation/project/glucosio-android-develop/app/src/main/java/org/glucosio/android/db/GlucoseReading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#2156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -763,15 +723,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/TestCase12.java">
+    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucoseRanges.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="24" />
+        <state relative-caret-position="106">
+          <caret line="89" column="52" lean-forward="true" selection-start-line="89" selection-start-column="52" selection-end-line="89" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestAutomation/project/glucosio-android-develop/app/src/main/java/org/glucosio/android/tools/GlucosioNotificationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestAutomation/testCasesExecutables/org/glucosio/android/TeamCorrectTestExecutables/GlucosioNotificationManager.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
