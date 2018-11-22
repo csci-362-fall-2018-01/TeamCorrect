@@ -4,16 +4,11 @@ Requirement being tested: RS001 Record user input - Blood Pressure
 
 Component being tested: PressureReading.java
 
-Method being tested: setMinReading, setMinReading, setId
+Method being tested: setMinReading
 
 Test input(s) including command-line argument(s):
-MaxReading = 180.0
 MinReading = 110.0
-ID = 1234
-ID = 146789
 
 Expected outcome(s):
-Id returned = 1234
-Id returned = 146789
 Min Reading returned = 110.0
-Max Reading returned = 180.0
+
