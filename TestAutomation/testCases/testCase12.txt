@@ -1,14 +1,20 @@
 Test Number: 12
 
-Requirement being tested:
+Requirement being tested: String to Color
 
-Component being tested:
+Component being tested: GlucoseRanges
 
-Method being tested:
+Method being tested: colorFromReading
 
 Test input(s) including command-line argument(s):
-
+reading: "green"
+reading: "red"
+reading: "blue"
+reading: "orange"
 
 
 Expected outcome(s):
-
+reading: "green", string: glucosio_reading_ok
+reading: "red", string: glucosio_reading_hyper
+reading: "blue", string: glucosio_reading_low
+reading: "orange", string: glucosio_reading_high
