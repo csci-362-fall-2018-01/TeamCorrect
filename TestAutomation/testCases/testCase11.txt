@@ -4,7 +4,7 @@ Requirement being tested: String to Color
 
 Component being tested: GlucoseRanges
 
-Method being tested: colorFromReading
+Method being tested: stringToColor
 
 Test input(s) including command-line argument(s):
 reading: "green"
