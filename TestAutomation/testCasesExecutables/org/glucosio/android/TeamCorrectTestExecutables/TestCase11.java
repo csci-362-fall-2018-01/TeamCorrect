@@ -24,10 +24,10 @@ public class TestCase11 {
     public static void main(String[] args) {
         setup();
         System.out.println("---- ");
-        colorFromReading("green");
-        colorFromReading("red");
-        colorFromReading("blue");
-        colorFromReading("orange");
+        stringToColor("green");
+        stringToColor("red");
+        stringToColor("blue");
+        stringToColor("orange");
 
     }
 }
