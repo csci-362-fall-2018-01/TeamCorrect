@@ -9,23 +9,6 @@ public class TestCase05 {
         pressureReadingTester = new PressureReading();
     }
 
-
-    public static void SetsId_WhenProvided() {
-        int id = 1234;
-
-        pressureReadingTester.setId(id);
-
-        System.out.println("Id returned = " + pressureReadingTester.getId());
-    }
-
-    public static void SetsId_WhenProvided2() {
-        int id = 146789;
-
-        pressureReadingTester.setId(id);
-
-        System.out.println("Id returned = " + pressureReadingTester.getId());
-    }
-
     public static void SetsMinReading_WhenProvided() {
         double minReading = 110.0;
 
@@ -34,19 +17,9 @@ public class TestCase05 {
         System.out.println("Min Reading returned = " + pressureReadingTester.getMinReading());
     }
 
-    public static void SetsMaxReading_WhenProvided() {
-        double maxReading = 180.0;
-
-        pressureReadingTester.setMaxReading(maxReading);
-
-        System.out.println("Max Reading returned = " + pressureReadingTester.getMaxReading());
-    }
 
     public static void main(String[] args) {
         setup();
-        SetsId_WhenProvided();
-        SetsId_WhenProvided2();
         SetsMinReading_WhenProvided();
-        SetsMaxReading_WhenProvided();
     }
 }
