@@ -1,14 +1,13 @@
 Test Number: 14
 
-Requirement being tested:
+Requirement being tested: RS001 Record user input - Blood Pressure
 
-Component being tested:
+Component being tested: PressureReading.java
 
-Method being tested:
+Method being tested: setMaxReading
 
 Test input(s) including command-line argument(s):
-
-
+MaxReading = 180.0
 
 Expected outcome(s):
-
+Max Reading returned = 180.0
