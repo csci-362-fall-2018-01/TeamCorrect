@@ -1,14 +1,16 @@
 Test Number: 15
 
-Requirement being tested:
+Requirement being tested: RS001 Record user input - Blood Pressure
 
-Component being tested:
+Component being tested: PressureReading.java
 
-Method being tested:
+Method being tested: setId
 
 Test input(s) including command-line argument(s):
-
+ID = 1234
+ID = 146789
 
 
 Expected outcome(s):
-
+Id returned = 1234
+Id returned = 146789
