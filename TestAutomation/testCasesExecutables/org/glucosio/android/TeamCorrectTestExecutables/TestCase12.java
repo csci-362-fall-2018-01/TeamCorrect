@@ -1,20 +1,15 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import org.glucosio.android.R;
-import org.glucosio.android.db.DatabaseHandler;
+
 
 public class TestCase12 {
 
     private static GlucoseRanges grTester;
-    public static void setup(){
-        grTester = new GlucoseRanges();
+    private static void setup(){
+        grTester = new GlucoseRanges(4.0,8.0);
     }
 
-    public String colorFromReading(double reading) {
+    public static void colorFromReadingTest(double reading) {
 
         String grReturn = grTester.colorFromReading(reading);
 
@@ -24,10 +19,10 @@ public class TestCase12 {
     public static void main(String[] args) {
         setup();
         System.out.println("---- ");
-        colorFromReading(69);
-        colorFromReading(201);
-        colorFromReading(75);
-        colorFromReading(195);
-        colorFromReading(100);
+        colorFromReadingTest(69.0);
+        colorFromReadingTest(201.0);
+        colorFromReadingTest(75.0);
+        colorFromReadingTest(195.0);
+        colorFromReadingTest(100.0);
     }
 }

@@ -1,33 +1,28 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import org.glucosio.android.R;
-import org.glucosio.android.db.DatabaseHandler;
+
 
 public class TestCase11 {
 
-    private static GlucoseRanges grTester;
-    public static void setup(){
-        grTester = new GlucoseRanges();
+    private static InputFilterMinMax minMaxTester;
+    private static void setup(){
+        minMaxTester = new InputFilterMinMax(4.0,8.0);
     }
 
-    public String stringToColor(double reading) {
+    public static void isInRangeTester(double a,double b, double c) {
 
-        String grReturn = grTester.stringToColor(reading);
+        boolean minMaxReturn = minMaxTester.isInRange(a, b, c);
 
-        System.out.println("str to color " + reading + " = " + grReturn);
+        System.out.println("Range Tester [" + a + "," + b + "," + c + "] = " + minMaxReturn);
     }
 
     public static void main(String[] args) {
         setup();
         System.out.println("---- ");
-        stringToColor("green");
-        stringToColor("red");
-        stringToColor("blue");
-        stringToColor("orange");
+        isInRangeTester(5.0,8.0,10.0);
+        isInRangeTester(1.0,0.0,100.0);
+        isInRangeTester(4.0,5.0,6.0);
+        
 
     }
 }

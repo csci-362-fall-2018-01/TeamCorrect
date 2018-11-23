@@ -1,20 +1,17 @@
 Test Number: 11
 
-Requirement being tested: String to Color
+Requirement being tested: RS018: Provide correct Glucose calculations based on User's data
+Component being tested: InputFilterMinMax
 
-Component being tested: GlucoseRanges
-
-Method being tested: stringToColor
+Method being tested: isInRangeTester
 
 Test input(s) including command-line argument(s):
-reading: "green"
-reading: "red"
-reading: "blue"
-reading: "orange"
+[5.0,8.0,10.0]
+[1.0,0.0,100.0] 
+[4.0,5.0,6.0] 
 
 
 Expected outcome(s):
-reading: "green", string: glucosio_reading_ok
-reading: "red", string: glucosio_reading_hyper
-reading: "blue", string: glucosio_reading_low
-reading: "orange", string: glucosio_reading_high
+Range Tester [5.0,8.0,10.0] = false 
+Range Tester [1.0,0.0,100.0] = false 
+Range Tester [4.0,5.0,6.0] = false 

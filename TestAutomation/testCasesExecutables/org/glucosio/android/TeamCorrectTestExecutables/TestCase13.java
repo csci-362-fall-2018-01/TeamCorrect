@@ -1,23 +1,15 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.media.RingtoneManager;
-import android.os.Build;
-import android.support.v4.app.NotificationManagerCompat;
-
 public class TestCase13 {
 
-    private static GlucoseNotificationManager managerTester;
-    public static void setup(){
-        managerTesterTester = new GlucoseNotificationManager();
+    private static GlucosioNotificationManager managerTester;
+    private static void setup(){
+        managerTester = new GlucosioNotificationManager();
     }
 
 
     public static void generateRandomNumberTester(int min, int max) {
-        String managerReturn = managerTester.generateRandomNumber(min, max);
+        int managerReturn = managerTester.generateRandomNumber(min, max);
 
         System.out.println("Random Number: " + managerReturn);
     }

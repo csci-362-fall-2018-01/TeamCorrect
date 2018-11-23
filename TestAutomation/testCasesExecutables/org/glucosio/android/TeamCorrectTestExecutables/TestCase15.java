@@ -1,6 +1,6 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-public class TestCase05 {
+public class TestCase15 {
 
     private static PressureReading pressureReadingTester;
 

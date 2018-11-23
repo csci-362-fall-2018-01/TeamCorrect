@@ -18,18 +18,13 @@
  *
  */
 
-package org.glucosio.android.tools;
+package org.glucosio.android.TeamCorrectTestExecutables;
 
-import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import org.glucosio.android.R;
-import org.glucosio.android.db.DatabaseHandler;
+
 
 public class GlucoseRanges {
 
-    private Context mContext;
+   
     private double userMin;
     private double userMax;
     private static final String ADA = "ADA";
@@ -44,48 +39,14 @@ public class GlucoseRanges {
     private static final int UKNICE_MIN = 81;
     private static final int UKNICE_MAX = 153;
 
-    public GlucoseRanges(Context context) {
-        this.mContext = context;
-        DatabaseHandler dB = new DatabaseHandler(mContext);
-        this.userMin = dB.getUser(1).getCustom_range_min();
-        this.userMax = dB.getUser(1).getCustom_range_max();
+    public GlucoseRanges(double min, double max){
+        this.userMin = min;
+        this.userMax = max;
+        
     }
+    
+    
 
-    @VisibleForTesting
-    void setCustomMin(int customMin) {
-        this.userMin = customMin;
-    }
-
-    @VisibleForTesting
-    void setCustomMax(int customMax) {
-        this.userMax = customMax;
-    }
-
-    public static int getPresetMin(String preset) {
-        switch (preset) {
-            case ADA:
-                return ADA_MIN;
-            case AACE:
-                return AACE_MIN;
-            case UKNICE:
-                return UKNICE_MIN;
-            default:
-                return ADA_MIN;
-        }
-    }
-
-    public static int getPresetMax(String preset) {
-        switch (preset) {
-            case ADA:
-                return ADA_MAX;
-            case AACE:
-                return AACE_MAX;
-            case UKNICE:
-                return UKNICE_MAX;
-            default:
-                return ADA_MAX;
-        }
-    }
 
     public String colorFromReading(double reading) {
         if (reading < HYPO_LIMIT) {
@@ -106,25 +67,5 @@ public class GlucoseRanges {
         }
     }
 
-    public int stringToColor(String color) {
-        @ColorRes int colorInt;
-        switch (color) {
-            case "green":
-                colorInt = R.color.glucosio_reading_ok;
-                break;
-            case "red":
-                colorInt = R.color.glucosio_reading_hyper;
-                break;
-            case "blue":
-                colorInt = R.color.glucosio_reading_low;
-                break;
-            case "orange":
-                colorInt = R.color.glucosio_reading_high;
-                break;
-            default:
-                colorInt = R.color.glucosio_reading_hypo;
-        }
-
-        return ContextCompat.getColor(mContext, colorInt);
-    }
+    
 }

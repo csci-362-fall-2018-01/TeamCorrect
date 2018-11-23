@@ -16,6 +16,6 @@ reading: 100
 Expected outcome(s):
 reading: 69, color: "purple"
 reading: 201, color: "red"
-reading: 75, color: "blue"
+reading: 75, color: "orange"
 reading: 195, color: "orange"
-reading: 100, color: "green"
+reading: 100, color: "orange"
