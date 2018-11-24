@@ -3,7 +3,7 @@ Test Number: 17
 Requirement being tested: GlucoseReading
 Component being tested: GlucoseReading.java
 
-Method being tested: setID, getId, setReading, getReading
+Method being tested: setReading, getReading
 
 Test input(s) including command-line argument(s):
 2.0
