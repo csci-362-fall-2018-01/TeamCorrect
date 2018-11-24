@@ -1,4 +1,4 @@
-package org.glucosio.android.TeamCorrectTestExecutables;
+package org.glucosio.android.TeamCorrectFaultInjection;
 
 
 public class TestCase10 {

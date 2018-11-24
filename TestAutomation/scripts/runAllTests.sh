@@ -37,6 +37,7 @@ report="$report <br />"
 #checks if file and executable
 #if [ -f $d -a -x $d ] 
 
+#Adds test case txt files to testResults
 cd testCases
 for d in `ls $PWD`; do
 if [ $d != "testResults.html" ];
@@ -51,6 +52,7 @@ if [ $d != "testResults.html" ];
 done
 cd ..
 
+#Loop to run all of testCaseExecutables
 cd testCasesExecutables
 
 testAutomationPath=$PWD
@@ -71,6 +73,31 @@ for file in *.class; do
 	
 	
 done
+
+#Beginning of Fault Injection Script
+
+cd ..
+
+cd TeamCorrectFaultInjection
+javac -classpath $testAutomationPath/joda-time-2.10.1.jar *.java 
+
+report="$report <br /> <br /> <strong> Fault Injection </strong> <br />"
+
+for file in *.class; do
+	if grep -q TestCase "$file"; then
+	
+	report="$report <br /> <strong> ${file%.*} </strong><br />"
+	
+
+	report="$report $(java -classpath $testAutomationPath:$testAutomationPath/joda-time-2.10.1.jar org.glucosio.android.TeamCorrectFaultInjection.${file%.*})" 
+
+	fi
+	
+	
+done
+
+#End of Fault Injection Script
+
 
 
 cd ..
