@@ -1,6 +1,6 @@
 Test Number: 12
 
-Requirement being tested: String to Color
+Requirement being tested: RS018: Provide correct Glucose calculations based on User's data
 
 Component being tested: GlucoseRanges
 

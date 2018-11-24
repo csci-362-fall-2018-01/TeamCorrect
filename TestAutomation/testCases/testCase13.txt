@@ -1,6 +1,6 @@
 Test Number: 13
 
-Requirement being tested: Random number generator range
+Requirement being tested: RS019: Provide alerts
 
 Component being tested: GlucosioNotificationManager
 
