@@ -7,8 +7,14 @@ Component being tested: PressureReading.java
 Method being tested: setMinReading
 
 Test input(s) including command-line argument(s):
-MinReading = 110.0
+110.0
+30.0
+15.0
+2.0
 
 Expected outcome(s):
 Min Reading returned = 110.0
+Min Reading returned = 30.0
+Min Reading returned = 15.0
+Min Reading returned = 20.0
 

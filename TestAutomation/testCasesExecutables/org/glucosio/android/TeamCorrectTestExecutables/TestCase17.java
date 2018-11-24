@@ -1,6 +1,10 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase17 {
 
@@ -9,41 +13,45 @@ public class TestCase17 {
         glucoseReading = new GlucoseReading();
     }
 
-    public static void SetsId_WhenProvided() {
-        int id = 1234;
-        glucoseReading.setId(id);
-        System.out.println("---- Id returned = " + glucoseReading.getId());
-    }
 
-
-    public static void SetsId_WhenProvided2() {
-        int id = 146789;
-        glucoseReading.setId(id);
-        System.out.println(" ---- Id returned = " + glucoseReading.getId());
-
-    }
-
-    public static void SetReading_WhenProvided() {
-        double reading = 2.0;
+    public static void SetReading_WhenProvided(double reading) {
+        
         glucoseReading.setReading(reading);
         System.out.println(" ---- Reading returned = " + glucoseReading.getReading());
 
     }
 
-    public static void SetReading_WhenProvided2() {
-        double reading = 10.0;
-        glucoseReading.setReading(reading);
-        System.out.println(" ---- Reading returned = " + glucoseReading.getReading() + " ----");
-
-
-    }
 
     public static void main(String[] args) {
         setup();
-        SetsId_WhenProvided();
-        SetsId_WhenProvided2();
-        SetReading_WhenProvided();
-        SetReading_WhenProvided2();
+  String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			double inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase17")){
+					line = reader.readLine();
+					while((line.equals("#TestCase18"))==false){
+						inputValue = Double.parseDouble(line);
+						SetReading_WhenProvided(inputValue);
+						line = reader.readLine();
+					}
 
-    }
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+
 }

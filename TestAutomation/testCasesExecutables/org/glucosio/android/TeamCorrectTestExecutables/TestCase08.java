@@ -1,5 +1,8 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase08 {
 
@@ -10,31 +13,50 @@ public class TestCase08 {
         actionTester = new ActionTip();
     }
 
-
-    public static void SetsTipTitle_WhenProvided(String tipTitle) {
-        
-
-        actionTester.setTipTitle(tipTitle);
-
-        System.out.println("---- Tip title:  " + actionTester.getTipTitle());
-    }
     public static void SetsTipDescription_WhenProvided(String tipDes) {
         
         
         actionTester.setTipDescription(tipDes);
         
-        System.out.println(" ----" + actionTester.getTipDescription());
+        System.out.println(" ---- Tip: " + actionTester.getTipDescription());
     }
     
 
 
     public static void main(String[] args) {
         setup();
-        SetsTipTitle_WhenProvided("Diabetes Tip #1");
-        SetsTipDescription_WhenProvided("Use whole foods in cooking like brown rice and whole wheat pasta.");
-        SetsTipTitle_WhenProvided("Diabetes Tip #2");
-        SetsTipDescription_WhenProvided("Try to eat at least 8 grams of fiber per meal.");
         
-        
-    }
+ 	String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			String inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase08")){
+					line = reader.readLine();
+					while((line.equals("#TestCase09"))==false){
+						inputValue = line.toString();
+						SetsTipDescription_WhenProvided(inputValue);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+    	
+    	
+    	
+    
 }

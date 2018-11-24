@@ -3,20 +3,16 @@ Test Number: 19
 Requirement being tested: GlucosioConverter
 Component being tested: GlucosioConverter.java
 
-Method being tested: glucoseToMmolL, glucoseToA1C, a1cToGlucose, a1cNgspToIfcc, a1cIfccToNgsp
+Method being tested: glucoseToMmolL
 
 Test input(s) including command-line argument(s):
-value = 60
-value = 60
-value = 6.0
-value = 6.0
-value = 64
-
-
+60.0
+2.0
+10.0
+11.0
 
 Expected outcome(s):
-value returned =3.3
-value returned =~3
-value returned =126
-value returned =42
-value returned =8
+glucoseToMmolL: 3.33 
+glucoseToMmolL: 0.11 
+glucoseToMmolL: 0.56 
+glucoseToMmolL: 0.61 

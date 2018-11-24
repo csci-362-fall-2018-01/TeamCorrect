@@ -4,18 +4,16 @@ Requirement being tested: RS013 Set Reminders
 
 Component being tested: Reminder.java
 
-Method being tested: setID, setMetric, setActive
+Method being tested: setMetric
 
 Test input(s) including command-line argument(s):
-Id = 100
-Id = 123456789
-Metric = "0mL"
-Metric = "9L"
-Active = true;
+0mL
+9mL
+10mL
+20mL 
 
 Expected outcome(s):
-Id returned = 100
-Id returned = 123456789
 Metric returned = 0mL
-Metric returned = 9L
-Is Active returned = true
+Metric returned = 9mL
+Metric returned = 10mL
+Metric returned = 20mL 

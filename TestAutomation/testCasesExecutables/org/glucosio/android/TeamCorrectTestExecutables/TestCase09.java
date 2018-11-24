@@ -1,5 +1,8 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase09 {
 
@@ -26,11 +29,37 @@ public class TestCase09 {
     public static void main(String[] args) {
         setup();
         System.out.println("---- ");
-        FormatGlucoseData_WhenProvided(10, true);
-        FormatGlucoseData_WhenProvided(50, true);
-        FormatGlucoseData_WhenProvided(100, true);
-        FormatGlucoseData_WhenProvided(0, true);
-        
-        
-    }
+        	String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			int inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase09")){
+					line = reader.readLine();
+					while((line.equals("#TestCase10"))==false){
+						inputValue = Integer.parseInt(line);
+						FormatGlucoseData_WhenProvided(inputValue,true);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+    	
+    	
+    	
+    
 }

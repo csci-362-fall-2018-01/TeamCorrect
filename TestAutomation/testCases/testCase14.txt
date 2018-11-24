@@ -7,7 +7,11 @@ Component being tested: PressureReading.java
 Method being tested: setMaxReading
 
 Test input(s) including command-line argument(s):
-MaxReading = 180.0
+180.0
+100.0
+10.0
 
 Expected outcome(s):
 Max Reading returned = 180.0
+Max Reading returned = 100.0
+Max Reading returned = 10.0

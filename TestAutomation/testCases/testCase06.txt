@@ -4,18 +4,17 @@ Requirement being tested: RS001 Record user input - Cholesterol Level
 
 Component being tested: CholesterolReading.java
 
-Method being tested: setTotalReading, setLDLReading, setHDLReading, setId
+Method being tested: setLDLReading
 
 Test input(s) including command-line argument(s):
-totalReading = 190.0
-LDLReading = 90.0
-HDLReading = 70.0
-ID = 1234
-ID = 146789
+190.0
+50.0
+1.0
+0.0
 
 Expected outcome(s):
-Total reading set to 190.0 
-LDL reading set to 90.0 
-HDL reading set to 70.0
-ID set to 1234
-ID set to 146789 
+LDL reading set to 190.0 
+LDL reading set to 50.0 
+LDL reading set to 1.0 
+LDL reading set to 0.0 
+

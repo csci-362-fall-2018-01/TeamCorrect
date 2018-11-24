@@ -4,13 +4,16 @@ Test Number: 18
 Requirement being tested: A1cEstimate
 Component being tested: A1cEstimate.java
 
-Method being tested: setValue, getValue, setMonth, getMonth, Average
+Method being tested: setMonth, getMonth
 
 Test input(s) including command-line argument(s):
-Value = 8.5
-Month = june
-
+june
+may
+july
+november
 
 Expected outcome(s):
-value returned = 8.5
 month returned = june
+month returned = may
+month returned = july
+month returned = november

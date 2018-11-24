@@ -4,7 +4,7 @@ Requirement being tested: RS001 Glucose Converter
 
 Component being tested: Glucose Converter
 
-Method being tested: glucoseToA1C, a1cToGlucose
+Method being tested: glucoseToA1C
 
 Test input(s) including command-line argument(s):
 mgDl = 10.0

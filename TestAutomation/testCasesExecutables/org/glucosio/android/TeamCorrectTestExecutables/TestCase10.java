@@ -1,5 +1,10 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class TestCase10 {
 
@@ -42,12 +47,35 @@ public class TestCase10 {
     public static void main(String[] args) {
         setup();
         System.out.println("---- ");
-        testHourToSpinnerType(24);
-        testHourToSpinnerType(8);
-        testHourToSpinnerType(4);
-        testHourToSpinnerType(19);
-        
-        
-        
-    }
+   	String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			int inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase10")){
+					line = reader.readLine();
+					while((line.equals("#TestCase11"))==false){
+						inputValue = Integer.parseInt(line);
+						testHourToSpinnerType(inputValue);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+   	
+    
 }

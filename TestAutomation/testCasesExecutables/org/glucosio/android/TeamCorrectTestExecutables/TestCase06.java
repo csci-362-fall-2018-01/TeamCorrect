@@ -1,5 +1,10 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class TestCase06 {
 
     private static CholesterolReading cholTester;
@@ -10,13 +15,7 @@ public class TestCase06 {
     }
 
 
-    public static void SetsTotalReading_WhenProvided(double totReading) {
-        
-
-        cholTester.setTotalReading(totReading);
-
-        System.out.println("---- Total reading set to " + cholTester.getTotalReading() + " ----");
-    }
+    
     public static void SetsLDLReading_WhenProvided(double ldlReading) {
         
         
@@ -24,32 +23,41 @@ public class TestCase06 {
         
         System.out.println("LDL reading set to " + cholTester.getLDLReading() + " ----");
     }
-    public static void SetsHDLReading_WhenProvided(double hdlReading) {
-        
-        
-        cholTester.setHDLReading(hdlReading);
-        
-        System.out.println("HDL reading set to " + cholTester.getHDLReading() + " ----");
-    }
-    public static void SetsID_WhenProvided(long id) {
-        
-        
-        cholTester.setId(id);
-        
-        System.out.println("ID set to " + cholTester.getId() + " ----");
-    }
+    
     
    
 
 
     public static void main(String[] args) {
         setup();
-        SetsTotalReading_WhenProvided(190.0);
-        SetsLDLReading_WhenProvided(90.0);
-        SetsHDLReading_WhenProvided(70.0);
-        SetsID_WhenProvided(1234);
-        SetsID_WhenProvided(146789);
-        
-        
-    }
+    	String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			double inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase06")){
+					line = reader.readLine();
+					while((line.equals("#TestCase07"))==false){
+						inputValue = Double.parseDouble(line);
+						SetsLDLReading_WhenProvided(inputValue);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+
 }

@@ -1,6 +1,9 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase01 {
 
@@ -12,27 +15,10 @@ public class TestCase01 {
     }
 
    
-    public static void SetsId_WhenProvided() {
-        int id = 100;
-        
-
-        reminderTester.setId(id);
-      
-        System.out.println("---- Id returned = " + reminderTester.getId());
-        
-    }
-
     
-    public static void SetsId_WhenProvided2() {
-        int id = 123456789;
-
-        reminderTester.setId(id);
-
-        System.out.println(" ---- Id returned = " + reminderTester.getId());
-    }
     
-    public static void SetsMetric_WhenProvided() {
-        String metric = "0mL";
+    public static void SetsMetric_WhenProvided(String metric) {
+       
 
         reminderTester.setMetric(metric);
 
@@ -40,30 +26,42 @@ public class TestCase01 {
         
     }
     
-    public static void SetsMetric_WhenProvided2() {
-        String metric = "9L";
-
-        reminderTester.setMetric(metric);
-
-        System.out.println(" ---- Metric returned = " + reminderTester.getMetric());
-    }
     
-    public static void SetsActive_WhenProvided() {
-        boolean active = true;
-
-        reminderTester.setActive(active);
-
-        System.out.println(" ---- Is Active returned = " + reminderTester.isActive() + " ----");
-        
-    }
+    
     public static void main(String[] args) {
         setup();
-    	SetsId_WhenProvided();
-    	SetsId_WhenProvided2();
-    	SetsMetric_WhenProvided();
-    	SetsMetric_WhenProvided2();
-    	SetsActive_WhenProvided();
+    
+	String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			String inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase01")){
+					line = reader.readLine();
+					while((line.equals("#TestCase02"))==false){
+						inputValue = line.toString();
+						SetsMetric_WhenProvided(inputValue);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
     	
     	
-    }
+    	
+    
 }

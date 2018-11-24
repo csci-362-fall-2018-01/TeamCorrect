@@ -2,6 +2,11 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 import java.text.NumberFormat;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class TestCase20 {
 
@@ -21,15 +26,37 @@ public class TestCase20 {
 
     public static void main(String[] args) {
         setup();
-        parseTest("6");
-        parseTest("1");
-        parseTest("2.3");
-        parseTest("8.1");
+   String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			String inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase20")){
+					line = reader.readLine();
+					while((line.equals("#TestCase21"))==false){
+						inputValue = line.toString();
+						parseTest(inputValue);
+						line = reader.readLine();
+					}
 
-
-
-
-
-
-    }
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+    	
+    	
+    	
+    
 }

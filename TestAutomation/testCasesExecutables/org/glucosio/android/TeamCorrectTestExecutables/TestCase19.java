@@ -1,6 +1,10 @@
 
 package org.glucosio.android.TeamCorrectTestExecutables;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase19 {
 
@@ -9,38 +13,42 @@ public class TestCase19 {
         glucosioConverterTest = new GlucosioConverter();
     }
 
-    public static void glucoseToMmolLTest() {
-        double value = 60;
+    public static void glucoseToMmolLTest(double value) {
+        
         System.out.println("glucoseToMmolL: " + glucosioConverterTest.glucoseToMmolL(value));
-    }
-
-    public static void glucoseToA1CTest() {
-        double value = 60;
-        System.out.println("glucoseToA1C: " + glucosioConverterTest.glucoseToA1C(value));
-    }
-
-    public static void a1cToGlucoseTest() {
-        double value = 6.0;
-        System.out.println("a1cToGlucose: " + glucosioConverterTest.a1cToGlucose(value));
-    }
-
-    public static void a1cNgspToIfccTest() {
-        double value = 6.0;
-        System.out.println("a1cNgspToIfcc: " + glucosioConverterTest.a1cNgspToIfcc(value));
-    }
-
-    public static void a1cIfccToNgspTest() {
-        double value = 64;
-        System.out.println("a1cIfccToNgsp: " + glucosioConverterTest.a1cIfccToNgsp(value));
     }
 
 
     public static void main(String[] args) {
         setup();
-        glucoseToMmolLTest();
-        glucoseToA1CTest();
-        a1cToGlucoseTest();
-        a1cNgspToIfccTest();
-        a1cIfccToNgspTest();
-    }
+   		String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			double inputValue;
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase19")){
+					line = reader.readLine();
+					while((line.equals("#TestCase20"))==false){
+						inputValue = Double.parseDouble(line);
+						glucoseToMmolLTest(inputValue);
+						line = reader.readLine();
+					}
+
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+
 }

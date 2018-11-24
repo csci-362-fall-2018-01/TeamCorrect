@@ -1,6 +1,9 @@
 package org.glucosio.android.TeamCorrectTestExecutables;
 
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TestCase11 {
 
@@ -18,11 +21,34 @@ public class TestCase11 {
 
     public static void main(String[] args) {
         setup();
-        System.out.println("---- ");
-        isInRangeTester(5.0,8.0,10.0);
-        isInRangeTester(1.0,0.0,100.0);
-        isInRangeTester(4.0,5.0,6.0);
-        
+        String filePath = new File("").getAbsolutePath();
+		
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(filePath + "/TestCasesInput.txt"));
+			String line = reader.readLine();
+			
+			
+			
+			while(line!=null) {
+				if(line.equals("#TestCase11")){
+					line = reader.readLine();
+					while((line.equals("#TestCase12"))==false){
+						String[] inputList = line.split("[,]");
+						isInRangeTester(Double.parseDouble(inputList[0]),Double.parseDouble(inputList[1]),Double.parseDouble(inputList[2]));
+						line = reader.readLine();
+					}
 
-    }
+				}
+				
+				line = reader.readLine();	
+			}
+			reader.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		}
+
 }

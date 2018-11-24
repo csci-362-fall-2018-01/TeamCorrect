@@ -4,17 +4,17 @@ Requirement being tested: RS001 Record user input - Ketone
 
 Component being tested: KetoneReading.java
 
-Method being tested: setReading, setId
+Method being tested: setReading
 
 Test input(s) including command-line argument(s):
-Reading = 2.0
-Reading = 10.0
-ID = 1234
-ID = 146789
+2.0
+10.0
+50.0
+100.0
 
 Expected outcome(s):
-Id returned = 1234
-Id returned = 146789
-Reading returned = 2.0
-Reading returned = 10.0
+Reading returned 2.0
+Reading returned 10.0
+Reading returned 50.0 
+Reading returned 100.0
 

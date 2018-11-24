@@ -4,21 +4,12 @@ Requirement being tested: RS017 Build User
 
 Component being tested: User.java
 
-Method being tested: createUser, setName, setD_type, setCounty, seta1cUnit, setMinimum, setMaximum
+Method being tested: setD_type
 
 Test input(s) including command-line argument(s):
-Name = "Bob"
-Type = 1
-Country = "United States"
-A1c Unit = mg/dL
-Minimum = 4.0 mmol/L
-Maximum = 9.0 mmol/L
-
+1
+2
 
 Expected outcome(s):
-Bob's name set to Bob 
-Bob's diabetes type set to Type 1 
-Bob's country set to United States 
-Bob's a1c unit set to mg/dL
-Bob's range minimum set to 4.0 mmol/L
-Bob's range maximum set to 9.0 mmol/L
+User's diabetes type set to Type 1
+User's diabetes type set to Type 2 
