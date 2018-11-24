@@ -25,3 +25,4 @@ RS015: Log diabetes type
 RS016: Provide tips
 RS017: Build User
 RS018: Provide correct Glucose calculations based on User's data
+RS019: Provide alerts
