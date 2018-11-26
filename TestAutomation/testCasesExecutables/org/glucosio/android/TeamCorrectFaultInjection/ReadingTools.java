@@ -62,13 +62,13 @@ public class ReadingTools {
     }
 
 
-    
+    //made it always return null
     public static Number parseReading(String reading) {
-        if (reading == null)
+        if (reading != null)
             return null;
         NumberFormat numberFormat = NumberFormat.getInstance();
         try {
-            return numberFormat.parse(reading);
+            return null;
         } catch (ParseException e) {
             return null;
         }
