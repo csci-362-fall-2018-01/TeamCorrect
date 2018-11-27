@@ -61,24 +61,17 @@ public class ReadingTools {
         }
     }
 
-
+    //Fault Injection #2
     //made it always return null
     public static Number parseReading(String reading) {
-        if (reading != null)
-            return null;
         NumberFormat numberFormat = NumberFormat.getInstance();
-        try {
+        if (reading != null){
             return null;
-        } catch (ParseException e) {
+        }
+        else{
             return null;
         }
     }
 
-    public static double safeParseDouble(String doubleValue) {
-        try {
-            return NumberFormat.getInstance().parse(doubleValue).doubleValue();
-        } catch (Exception e) {
-            return 0;
-        }
-    }
+    
 }
