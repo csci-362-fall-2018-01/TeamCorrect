@@ -19,7 +19,7 @@ public class TestCase04 {
 
         weightReadingTester.setReading(reading);
 
-        System.out.println("Reading returned = " + weightReadingTester.getReading());
+        System.out.println("Reading returned = " + weightReadingTester.getReading() + " ---- ");
     }
 
     public static void main(String[] args) {

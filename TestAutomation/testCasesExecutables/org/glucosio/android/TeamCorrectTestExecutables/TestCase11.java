@@ -16,7 +16,7 @@ public class TestCase11 {
 
         boolean minMaxReturn = minMaxTester.isInRange(a, b, c);
 
-        System.out.println("Range Tester [" + a + "," + b + "," + c + "] = " + minMaxReturn);
+        System.out.println("Range Tester [" + a + "," + b + "," + c + "] = " + minMaxReturn + " ---- ");
     }
 
     public static void main(String[] args) {

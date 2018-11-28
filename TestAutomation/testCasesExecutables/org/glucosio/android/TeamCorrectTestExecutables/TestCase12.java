@@ -16,7 +16,7 @@ public class TestCase12 {
 
         String grReturn = grTester.colorFromReading(reading);
 
-        System.out.println("color from reading " + reading + " = " + grReturn);
+        System.out.println("color from reading " + reading + " = " + grReturn + " ---- ");
     }
 
     public static void main(String[] args) {

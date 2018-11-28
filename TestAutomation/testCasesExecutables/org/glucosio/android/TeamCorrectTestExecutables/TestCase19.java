@@ -15,7 +15,7 @@ public class TestCase19 {
 
     public static void glucoseToMmolLTest(double value) {
         
-        System.out.println("glucoseToMmolL: " + glucosioConverterTest.glucoseToMmolL(value));
+        System.out.println("glucoseToMmolL: " + glucosioConverterTest.glucoseToMmolL(value) + " ---- ");
     }
 
 

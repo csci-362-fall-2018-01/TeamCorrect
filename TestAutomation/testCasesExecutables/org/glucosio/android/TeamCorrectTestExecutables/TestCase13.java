@@ -16,7 +16,7 @@ public class TestCase13 {
     public static void generateRandomNumberTester(int min, int max) {
         int managerReturn = managerTester.generateRandomNumber(min, max);
 
-        System.out.println("Random Number: " + managerReturn);
+        System.out.println("Random Number: " + managerReturn + " ---- ");
     }
 
     public static void main(String[] args) {

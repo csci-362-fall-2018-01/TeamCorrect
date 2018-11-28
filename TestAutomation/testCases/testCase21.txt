@@ -6,10 +6,7 @@ Component being tested: DoubleGraphObject.java
 Method being tested: get/setReading(), get/setCreated()
 
 Test input(s) including command-line argument(s):
-
-
-
-
+N/a
 
 Expected outcome(s):
-
+2018-11-28T11:05:27.951-05:00 10.0 

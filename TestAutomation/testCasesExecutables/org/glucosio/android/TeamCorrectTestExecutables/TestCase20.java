@@ -19,7 +19,7 @@ public class TestCase20 {
         
         Number numReturn = readingToolsTest.parseReading(reading);
 
-        System.out.println("str to number " + reading + " = " + numReturn);
+        System.out.println("str to number " + reading + " = " + numReturn + " ---- ");
     }
 
 

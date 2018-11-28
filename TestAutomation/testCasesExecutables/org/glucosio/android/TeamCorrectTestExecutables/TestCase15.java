@@ -20,7 +20,7 @@ public class TestCase15 {
 
         pressureReadingTester.setId(id);
 
-        System.out.println("Id returned = " + pressureReadingTester.getId());
+        System.out.println("Id returned = " + pressureReadingTester.getId() + " ---- ");
     }
 
     

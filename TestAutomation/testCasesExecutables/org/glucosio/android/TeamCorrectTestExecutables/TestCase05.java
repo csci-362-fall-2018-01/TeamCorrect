@@ -18,7 +18,7 @@ public class TestCase05 {
 
         pressureReadingTester.setMinReading(minReading);
 
-        System.out.println("Min Reading returned = " + pressureReadingTester.getMinReading());
+        System.out.println("Min Reading returned = " + pressureReadingTester.getMinReading() + " --- ");
     }
 
 

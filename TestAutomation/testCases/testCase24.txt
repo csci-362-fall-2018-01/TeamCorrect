@@ -8,10 +8,7 @@ getMinimumFractionDigits()
 getMaximumFractionDigits()
 
 Test input(s) including command-line argument(s):
-
-
-
-
+N/a
 
 Expected outcome(s):
 0 3

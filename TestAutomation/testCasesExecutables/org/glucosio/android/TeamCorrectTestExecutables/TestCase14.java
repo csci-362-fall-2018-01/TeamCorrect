@@ -18,7 +18,7 @@ public class TestCase14 {
 
         pressureReadingTester.setMaxReading(maxReading);
 
-        System.out.println("Max Reading returned = " + pressureReadingTester.getMaxReading());
+        System.out.println("Max Reading returned = " + pressureReadingTester.getMaxReading() + " ---- ");
     }
 
     public static void main(String[] args) {

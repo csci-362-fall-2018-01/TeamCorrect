@@ -11,10 +11,6 @@ value = 1
 value = 2.3
 value = 8.1
 
-
-
-
-
 Expected outcome(s):
 str to number "6" = 6
 str to number "1" = 1
