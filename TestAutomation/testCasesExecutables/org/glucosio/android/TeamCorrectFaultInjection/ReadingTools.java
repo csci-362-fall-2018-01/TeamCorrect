@@ -20,7 +20,7 @@
 
 package org.glucosio.android.TeamCorrectFaultInjection;
 
-//Fault Injection #1
+
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -29,7 +29,7 @@ public class ReadingTools {
 
     public ReadingTools() {
     }
-
+    //Fault Injection #2
     public int hourToSpinnerType(int hour) {
 
         if (hour > 23) {
@@ -61,7 +61,7 @@ public class ReadingTools {
         }
     }
 
-    //Fault Injection #2
+    //Fault Injection #5
     //made it always return null
     public static Number parseReading(String reading) {
         NumberFormat numberFormat = NumberFormat.getInstance();

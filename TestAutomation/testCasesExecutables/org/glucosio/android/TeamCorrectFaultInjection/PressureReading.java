@@ -20,7 +20,7 @@
 
 package org.glucosio.android.TeamCorrectFaultInjection;
 
-//Fault Injection #5
+//Fault Injection #4
 
 import java.util.Date;
 
@@ -28,8 +28,8 @@ public class PressureReading  {
     
     private long id;
 
-    private double minReading;
-    private double maxReading;
+    private double minReading = 0.0;
+    private double maxReading = 0.0;
     private Date created;
 
     public PressureReading() {

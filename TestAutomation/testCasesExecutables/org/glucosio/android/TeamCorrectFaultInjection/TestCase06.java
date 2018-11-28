@@ -28,7 +28,11 @@ public class TestCase06 {
 
     public static void main(String[] args) {
         setup();
+        System.out.println("File/Method: CholesterolReading.setLDLReading --- Fault Injected: LDL Reading was changed to HDL Reading. ---LDL Reading is not correctly set with input of 6.4. ----");
         SetsLDLReading_WhenProvided(6.4);
+        
+                           
+
     	
 			
 		}

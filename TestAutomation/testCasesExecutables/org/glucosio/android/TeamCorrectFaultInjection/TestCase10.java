@@ -41,6 +41,8 @@ public class TestCase10 {
 
     public static void main(String[] args) {
         setup();
+        System.out.println("File/Method: ReadingTools.hourToSpinnerType --- Fault: changed hour>20 to hour<20; Fault: changed hour>17 to hour<17; Fault: changed hour>13 to hour<13; Fault: changed hour>7 to hour<7; Fault: changed hour>4 to hour<4 ----");
+
         System.out.println("---- ");
         testHourToSpinnerType(24);
         testHourToSpinnerType(8);

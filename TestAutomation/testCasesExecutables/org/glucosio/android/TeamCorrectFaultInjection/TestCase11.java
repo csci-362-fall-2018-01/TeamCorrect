@@ -17,7 +17,9 @@ public class TestCase11 {
 
     public static void main(String[] args) {
         setup();
-        isInRangeTester(12.0, 1.5, 8,2);
+        System.out.println("InputFilterMinMax.isInRange --- Fault: Changed operation signs in expression ---");
+        
+        isInRangeTester(12.0, 1.5, 8.2);
         
 			
 		}

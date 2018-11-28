@@ -19,8 +19,12 @@ public class TestCase20 {
 
 
     public static void main(String[] args) {
+        
+        
         setup();
-        parseTest(6);
+        
+        System.out.println("ReadingTools.parseReading --- Fault: Set all returns to null (ReadingTools.parseReading). ---");
+        parseTest("6");
  
 			
 		}

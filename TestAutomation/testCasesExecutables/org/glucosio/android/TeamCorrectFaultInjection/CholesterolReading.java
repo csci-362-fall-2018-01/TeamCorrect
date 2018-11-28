@@ -20,7 +20,7 @@
 
 package org.glucosio.android.TeamCorrectFaultInjection;
 
-//Fault Injection #3
+//Fault Injection #1
 
 import java.util.Date;
 

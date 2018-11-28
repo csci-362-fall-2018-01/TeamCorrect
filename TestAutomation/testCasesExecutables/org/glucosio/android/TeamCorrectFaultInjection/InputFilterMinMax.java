@@ -20,21 +20,21 @@
 
 package org.glucosio.android.TeamCorrectFaultInjection;
 
-//Fault Injection #4
 
 public class InputFilterMinMax {
     
 
     private double min, max;
     
-//switched min and max
+
     public InputFilterMinMax(double min, double max) {
-        this.max = min;
-        this.min = max;
+        this.max = max;
+        this.min = min;
     }
 
     
-//messed with op signs
+    //Fault Injection #3
+    //Changed operation signs in expression (Original: b > a ? c >= a && c <= b : c >= b && c <= a)
     protected boolean isInRange(double a, double b, double c) {
         return b < a ? c <= a && c >= b : c <= b && c >= a;
     }

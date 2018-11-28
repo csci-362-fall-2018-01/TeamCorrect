@@ -19,8 +19,9 @@ public class TestCase14 {
 
     public static void main(String[] args) {
         setup();
+        System.out.println("File/Method: PressureReading.setMaxReading --- Fault: Changed min to max and vice versa. Incorrect value returned. --- ");
  	      SetsMaxReading_WhenProvided(12.2);
-        SetsMaxReading_WhenProvided(5.2);
+            SetsMaxReading_WhenProvided(5.2);
 
   
 			
