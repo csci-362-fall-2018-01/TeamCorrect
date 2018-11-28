@@ -1,15 +1,14 @@
-Test Number:
+Test Number: 25
 
-Requirement being tested:
-Component being tested:
+Requirement being tested: RS017 Build User
+Component being tested: User.java
 
-Method being tested:
+Method being tested:setPreferred_unit_a1c
 
 Test input(s) including command-line argument(s):
-
-
-
-
+"mg/dL"
+"mmol/L"
 
 Expected outcome(s):
-
+User's A1c unit set to mg/dL
+User's A1c unit set to mmol/L

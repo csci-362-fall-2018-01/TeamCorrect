@@ -96,4 +96,6 @@ november
 #TestCase23
 #TestCase24
 #TestCase25
+mg/dL
+mmol/L
 #End
