@@ -4,6 +4,7 @@ REQUIREMENTS
 RS001: Record user input 
 Glucose
 HbA1C reading 
+A1C reading
 Cholesterol level 
 Blood pressure
 Ketones
