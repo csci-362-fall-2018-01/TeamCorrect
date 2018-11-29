@@ -1,6 +1,7 @@
 Test Number: 23
 
 Requirement being tested: RS003 - Provide a log of user inputs for the past days
+
 Component being tested: SplitDateTime.java
 
 Method being tested: SplitDateTime; DateFormat.getDateInstance

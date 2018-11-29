@@ -1,6 +1,6 @@
 Test Number: 16
 
-Requirement being tested: HB1ACReading
+Requirement being tested: RS001: Record user input - HB1ACReading
 Component being tested: HB1ACReading.java
 
 Method being tested: setReading

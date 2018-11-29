@@ -1,6 +1,7 @@
 Test Number: 21
 
 Requirement being tested: RS004 - Display Graphically
+
 Component being tested: DoubleGraphObject.java
 
 Method being tested: get/setReading(), get/setCreated()

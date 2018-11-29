@@ -1,6 +1,7 @@
 Test Number: 19
 
-Requirement being tested: GlucosioConverter
+Requirement being tested: RS018: Provide correct Glucose calculations based on User's data
+
 Component being tested: GlucosioConverter.java
 
 Method being tested: glucoseToMmolL

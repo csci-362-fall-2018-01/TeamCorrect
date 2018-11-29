@@ -1,6 +1,6 @@
 Test Number: 20
 
-Requirement being tested: ReadingTools
+Requirement being tested: RS007: Export data to various formats and services 
 Component being tested: ReadingTools.java
 
 Method being tested: parseReading

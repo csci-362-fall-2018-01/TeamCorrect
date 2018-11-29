@@ -1,6 +1,6 @@
 Test Number: 17
 
-Requirement being tested: GlucoseReading
+Requirement being tested: RS001: Record user input - Glucose
 Component being tested: GlucoseReading.java
 
 Method being tested: setReading, getReading

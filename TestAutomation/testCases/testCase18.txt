@@ -1,7 +1,7 @@
 
 Test Number: 18
 
-Requirement being tested: A1cEstimate
+Requirement being tested: RS001: Record user input  - A1c reading
 Component being tested: A1cEstimate.java
 
 Method being tested: setMonth, getMonth
