@@ -110,3 +110,15 @@ This deliverable contains our updated testing framework and 25 test cases to run
 
 Files:
 [team-correct]_deliverable4.pdf
+
+# Deliverable #5
+This deliverable contains our 5 fault injections.
+
+Files:
+[team-correct]_deliverable5.pdf
+
+# Deliverable #6
+This deliverable contains our final report.
+
+Files:
+[team-correct]_finalReport.pdf
